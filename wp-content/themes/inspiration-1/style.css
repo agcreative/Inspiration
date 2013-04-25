@@ -1,0 +1,14 @@
+/*
+Theme Name: Inspiration Furniture
+Theme URI: http://www.digicoyote.com/
+Description: A template for the Inspiration Furniture WordPress website
+Version: 1.6
+Author: Digicoyote Software Inc.
+Author URI: http://www.digicoyote.com/
+Tags: fixed width, custom, two columns, widgets, menus
+*/
+@import url('css/reset.css');
+@import url('css/styles.css');
+@import url('css/layout.css');
+@import url('css/content.css?6');
+@import url('css/supersized.core.css');

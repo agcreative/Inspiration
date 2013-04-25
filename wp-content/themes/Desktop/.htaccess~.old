@@ -1,0 +1,67 @@
+#Redirect /Discover-Canada/Student-and-Budget-Tours /
+
+Redirect 301 /browse-tours/custom-tours http://www.discovercanadatours.com/custom-tours
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^clubesl.ca$ [OR]
+RewriteCond %{HTTP_HOST} ^www.clubesl.ca$
+RewriteRule ^.*$ "http\:\/\/www\.clubesl\.com" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^clubesltours.ca$ [OR]
+RewriteCond %{HTTP_HOST} ^www.clubesltours.ca$
+RewriteRule ^.*$ "http\:\/\/www\.clubesl\.com" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^www.clubesl.com$ 
+RewriteRule ^robots.txt$ /clubesl_robots.txt [L]
+
+RewriteCond %{HTTP_HOST} ^discovercanadatours.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.discovercanadatours.com$ [OR]
+RewriteRule ^robots.txt$ /discovercanada_robots.txt [L]
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
+
+<Files /maintenance/*>
+allow from all
+deny from none
+satisfy any
+</files>
+
+## start maintenance
+#errordocument 403 /maintenance
+#allow from 108.172.101.133
+#deny from all
+## end maintenance
+
+
+errordocument 404 /error404.php
+
+
+
+
+suPHP_ConfigPath /home/discover/php.ini
+SetEnv PHPRC /home/discover/php.ini
+options -multiviews
+
+<Files "DEADJOE">
+deny from all
+</Files>
+
+<Files "*~">
+deny from all
+</Files>
+
+<Files ".svn">
+deny from all
+
+</Files>
+
+options -indexes

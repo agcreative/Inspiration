@@ -1,0 +1,611 @@
+O:9:"MagpieRSS":19:{s:6:"parser";i:0;s:12:"current_item";a:0:{}s:5:"items";a:10:{i:0;a:14:{s:5:"title";s:45:"PHP Routing Class which supports REST routing";s:4:"link";s:61:"http://feedproxy.google.com/~r/dannyvankooten/~3/Z-fQJCu618A/";s:8:"comments";s:74:"http://dannyvankooten.com/718/php-routing-class-with-rest-routes/#comments";s:7:"pubdate";s:31:"Wed, 30 Nov 2011 22:04:10 +0000";s:2:"dc";a:1:{s:7:"creator";s:16:"Danny van Kooten";}s:8:"category";s:34:"WebdevelopmentFrameworksPHPRouting";s:4:"guid";s:32:"http://dannyvankooten.com/?p=718";s:11:"description";s:378:"<p>In the last few months I&#8217;ve been looking into all the different PHP frameworks and how they glue things together. One of the most important things in every framework is the way it handles routes. I&#8217;ve been developing Ruby on...</p><p><a href="http://dannyvankooten.com/718/php-routing-class-with-rest-routes/">PHP Routing Class which supports REST routing</a></p>";s:7:"content";a:1:{s:7:"encoded";s:3327:"<p>In the last few months I&#8217;ve been looking into all the different PHP frameworks and how they glue things together. One of the most important things in every framework is the way it handles routes. I&#8217;ve been developing Ruby on Rails applications extensively last year and I really like the way Rails handles it&#8217;s routes. That&#8217;s why I&#8217;ve decided to start programming a Routing class that mimics Rails routing functionality.</p>
+<p>I&#8217;ve released this PHP Routing class on Github <a href="https://github.com/dannyvankooten/PHP-Router">here</a>, so you can follow and contribute to it&#8217;s development progress.</p>
+<h4>What does this PHP Routing class do?</h4>
+<p>In short, this class helps you route URL&#8217;s to their corresponding Controller and action methods. You can use different HTTP methods to fully benefit from using REST / resourceful routes. Also, setting up dynamic URL&#8217;s that pass parameters to their corresponding action are no problem.</p>
+<ul>
+<li>REST Routing</li>
+<li>Use different HTTP methods for same URL&#8217;s</li>
+<li>Dynamic URL segments</li>
+<li>Reversed routing, create URL from route</li>
+</ul>
+<p>The class is fairly simple and lightweight, it won&#8217;t do any unnecessary processing. Have a look at the following snippet taken from the example file to get a better understanding on how to use this class in your projects.</p>
+<pre class="qoate-code">
+&lt;?php
+require 'Router.php';
+
+$r = new Router();
+
+// maps / to controller 'users' and method 'index'.
+$r-&gt;match('/','users#index');
+
+// maps /user/5 to controller 'users', method 'show' with parameter 'id' =&gt; 5
+$r-&gt;match('/user/:id','users#show');
+
+// maps POST request to /users/ to controller 'users' and method 'create'
+$r-&gt;match('/users','users#create',array('via' =&gt; 'post'));
+
+// maps GET /users/5/edit to controller 'users', method 'edit' with parameters 'id' =&gt; 5 and saves route as a named route.
+$r-&gt;match('/users/:id/edit','users#edit',array('via' =&gt; 'get', 'as' =&gt; 'user_edit_page'));
+
+// echoes /users/5/edit
+echo $r-&gt;reverse('user_edit_page',array('id' =&gt; '5'));
+
+// maps multiple routes
+// GET /users will map to users#index
+// GET /users/5 will map to users#show
+$r-&gt;resources('users',array('only' =&gt; 'index,show'));
+
+if($r-&gt;hasRoute()) {
+    // extract controller, action and parameters.
+    extract($r-&gt;getRoute());
+
+    ?&gt;
+    &lt;h1&gt;Route found!&lt;/h1&gt;
+    &lt;p&gt;&lt;b&gt;Controller: &lt;/b&gt;&lt;?php echo $controller; ?&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;b&gt;Action: &lt;/b&gt;&lt;?php echo $action; ?&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;b&gt;Params: &lt;/b&gt;&lt;?php var_dump($params); ?&gt;&lt;/p&gt;
+    &lt;?php
+
+} else {
+    ?&gt;&lt;h1&gt;No route found.&lt;/h1&gt;&lt;?php
+}
+
+?&gt;
+</pre>
+<p>If you&#8217;re using this class and experience any issues, please post them using GitHub&#8217;s issue tracker. Also, feel free to geek around and fork the project to improve this class. </p>
+<p><a href="https://github.com/dannyvankooten/PHP-Router">Watch PHP Routing Class on Github!</a></p>
+<p><a href="http://dannyvankooten.com/718/php-routing-class-with-rest-routes/">PHP Routing Class which supports REST routing</a></p><img src="http://feeds.feedburner.com/~r/dannyvankooten/~4/Z-fQJCu618A" height="1" width="1"/>";}s:3:"wfw";a:1:{s:10:"commentrss";s:70:"http://dannyvankooten.com/718/php-routing-class-with-rest-routes/feed/";}s:5:"slash";a:1:{s:8:"comments";s:1:"1";}s:10:"feedburner";a:1:{s:8:"origlink";s:65:"http://dannyvankooten.com/718/php-routing-class-with-rest-routes/";}s:7:"summary";s:378:"<p>In the last few months I&#8217;ve been looking into all the different PHP frameworks and how they glue things together. One of the most important things in every framework is the way it handles routes. I&#8217;ve been developing Ruby on...</p><p><a href="http://dannyvankooten.com/718/php-routing-class-with-rest-routes/">PHP Routing Class which supports REST routing</a></p>";s:12:"atom_content";s:3327:"<p>In the last few months I&#8217;ve been looking into all the different PHP frameworks and how they glue things together. One of the most important things in every framework is the way it handles routes. I&#8217;ve been developing Ruby on Rails applications extensively last year and I really like the way Rails handles it&#8217;s routes. That&#8217;s why I&#8217;ve decided to start programming a Routing class that mimics Rails routing functionality.</p>
+<p>I&#8217;ve released this PHP Routing class on Github <a href="https://github.com/dannyvankooten/PHP-Router">here</a>, so you can follow and contribute to it&#8217;s development progress.</p>
+<h4>What does this PHP Routing class do?</h4>
+<p>In short, this class helps you route URL&#8217;s to their corresponding Controller and action methods. You can use different HTTP methods to fully benefit from using REST / resourceful routes. Also, setting up dynamic URL&#8217;s that pass parameters to their corresponding action are no problem.</p>
+<ul>
+<li>REST Routing</li>
+<li>Use different HTTP methods for same URL&#8217;s</li>
+<li>Dynamic URL segments</li>
+<li>Reversed routing, create URL from route</li>
+</ul>
+<p>The class is fairly simple and lightweight, it won&#8217;t do any unnecessary processing. Have a look at the following snippet taken from the example file to get a better understanding on how to use this class in your projects.</p>
+<pre class="qoate-code">
+&lt;?php
+require 'Router.php';
+
+$r = new Router();
+
+// maps / to controller 'users' and method 'index'.
+$r-&gt;match('/','users#index');
+
+// maps /user/5 to controller 'users', method 'show' with parameter 'id' =&gt; 5
+$r-&gt;match('/user/:id','users#show');
+
+// maps POST request to /users/ to controller 'users' and method 'create'
+$r-&gt;match('/users','users#create',array('via' =&gt; 'post'));
+
+// maps GET /users/5/edit to controller 'users', method 'edit' with parameters 'id' =&gt; 5 and saves route as a named route.
+$r-&gt;match('/users/:id/edit','users#edit',array('via' =&gt; 'get', 'as' =&gt; 'user_edit_page'));
+
+// echoes /users/5/edit
+echo $r-&gt;reverse('user_edit_page',array('id' =&gt; '5'));
+
+// maps multiple routes
+// GET /users will map to users#index
+// GET /users/5 will map to users#show
+$r-&gt;resources('users',array('only' =&gt; 'index,show'));
+
+if($r-&gt;hasRoute()) {
+    // extract controller, action and parameters.
+    extract($r-&gt;getRoute());
+
+    ?&gt;
+    &lt;h1&gt;Route found!&lt;/h1&gt;
+    &lt;p&gt;&lt;b&gt;Controller: &lt;/b&gt;&lt;?php echo $controller; ?&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;b&gt;Action: &lt;/b&gt;&lt;?php echo $action; ?&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;b&gt;Params: &lt;/b&gt;&lt;?php var_dump($params); ?&gt;&lt;/p&gt;
+    &lt;?php
+
+} else {
+    ?&gt;&lt;h1&gt;No route found.&lt;/h1&gt;&lt;?php
+}
+
+?&gt;
+</pre>
+<p>If you&#8217;re using this class and experience any issues, please post them using GitHub&#8217;s issue tracker. Also, feel free to geek around and fork the project to improve this class. </p>
+<p><a href="https://github.com/dannyvankooten/PHP-Router">Watch PHP Routing Class on Github!</a></p>
+<p><a href="http://dannyvankooten.com/718/php-routing-class-with-rest-routes/">PHP Routing Class which supports REST routing</a></p><img src="http://feeds.feedburner.com/~r/dannyvankooten/~4/Z-fQJCu618A" height="1" width="1"/>";}i:1;a:14:{s:5:"title";s:64:"Newsletter Sign-Up, added configuration helper: Config Extractor";s:4:"link";s:61:"http://feedproxy.google.com/~r/dannyvankooten/~3/JaHzuDw9hVg/";s:8:"comments";s:102:"http://dannyvankooten.com/703/newsletter-sign-up-added-configuration-helper-config-extractor/#comments";s:7:"pubdate";s:31:"Sat, 12 Nov 2011 12:00:06 +0000";s:2:"dc";a:1:{s:7:"creator";s:16:"Danny van Kooten";}s:8:"category";s:27:"WordPressnewsletter-sign-up";s:4:"guid";s:32:"http://dannyvankooten.com/?p=703";s:11:"description";s:436:"<p>With Newsletter Sign-Up having been downloaded over 50.000 times (combined with the old plugin) it was about time for me to release another update. I&#8217;ve been getting more and more e-mails on how to properly configure the plugin so I decided...</p><p><a href="http://dannyvankooten.com/703/newsletter-sign-up-added-configuration-helper-config-extractor/">Newsletter Sign-Up, added configuration helper: Config Extractor</a></p>";s:7:"content";a:1:{s:7:"encoded";s:2966:"<p>With Newsletter Sign-Up having been downloaded over 50.000 times (combined with the old plugin) it was about time for me to release another update. I&#8217;ve been getting more and more e-mails on <a href="http://dannyvankooten.com/571/configuring-newsletter-sign-up-the-definitive-guide/">how to properly configure the plugin</a> so I decided that&#8217;s where the plugin could use some improvements.</p>
+<p>Although my detailed post on how to configure it certainly helped I decided it would be cool if I built some kind of tool that helped new users extract the right configuration settings for them. So here it is, the &#8220;configuration extractor&#8221; that comes with version 1.5.0 of Newsletter Sign-Up.</p>
+<h2>How does this &#8220;configuration extractor&#8221; work?</h2>
+<p>Basically all you have to do is provide a form snippet that you would normally embed in your website&#8217;s HTML code, paste it in the configuration extractor text area and hit the extract button. The tool will then try to extract the different values which are needed to get <a href="http://dannyvankooten.com/wordpress-plugins/newsletter-sign-up/">Newsletter Sign-up</a> to work. The tool is still pretty minimal but I will work on it to improve it during the next weeks.</p>
+<p>When the configuration settings the tool provided did not work, you can now more easily extract the right values yourself by using the cleaned up form that comes with the results of the configuration extractor. This is basically a stripped down version of your Sign-up form, which makes it way easier to extract the correct settings.</p>
+<p>Have a look at the following screenshots to get a better idea of how the tool works or download <a href="http://dannyvankooten.com/wordpress-plugins/newsletter-sign-up/">Newsletter Sign-Up v1.5</a> straight away!</p>
+<p><a href="http://dannyvankooten.com/wp-content/uploads/2011/11/config-extractor-input.jpg"><img class="aligncenter size-full wp-image-704" title="config-extractor-input" src="http://dannyvankooten.com/wp-content/uploads/2011/11/config-extractor-input.jpg" alt="" width="800" height="506" /></a><a href="http://dannyvankooten.com/wp-content/uploads/2011/11/config-extractor-results.jpg"><img class="aligncenter size-full wp-image-705" title="config-extractor-results" src="http://dannyvankooten.com/wp-content/uploads/2011/11/config-extractor-results.jpg" alt="" width="800" height="455" /></a></p>
+<p>Let me know what you think of this update. The next thing i&#8217;ll work on is error handling and providing an easier alternative to style the form, besides using plain CSS. Of course all suggestions on how to improve Newsletter Sign-Up are welcome !</p>
+<p><a href="http://dannyvankooten.com/703/newsletter-sign-up-added-configuration-helper-config-extractor/">Newsletter Sign-Up, added configuration helper: Config Extractor</a></p><img src="http://feeds.feedburner.com/~r/dannyvankooten/~4/JaHzuDw9hVg" height="1" width="1"/>";}s:3:"wfw";a:1:{s:10:"commentrss";s:98:"http://dannyvankooten.com/703/newsletter-sign-up-added-configuration-helper-config-extractor/feed/";}s:5:"slash";a:1:{s:8:"comments";s:1:"0";}s:10:"feedburner";a:1:{s:8:"origlink";s:93:"http://dannyvankooten.com/703/newsletter-sign-up-added-configuration-helper-config-extractor/";}s:7:"summary";s:436:"<p>With Newsletter Sign-Up having been downloaded over 50.000 times (combined with the old plugin) it was about time for me to release another update. I&#8217;ve been getting more and more e-mails on how to properly configure the plugin so I decided...</p><p><a href="http://dannyvankooten.com/703/newsletter-sign-up-added-configuration-helper-config-extractor/">Newsletter Sign-Up, added configuration helper: Config Extractor</a></p>";s:12:"atom_content";s:2966:"<p>With Newsletter Sign-Up having been downloaded over 50.000 times (combined with the old plugin) it was about time for me to release another update. I&#8217;ve been getting more and more e-mails on <a href="http://dannyvankooten.com/571/configuring-newsletter-sign-up-the-definitive-guide/">how to properly configure the plugin</a> so I decided that&#8217;s where the plugin could use some improvements.</p>
+<p>Although my detailed post on how to configure it certainly helped I decided it would be cool if I built some kind of tool that helped new users extract the right configuration settings for them. So here it is, the &#8220;configuration extractor&#8221; that comes with version 1.5.0 of Newsletter Sign-Up.</p>
+<h2>How does this &#8220;configuration extractor&#8221; work?</h2>
+<p>Basically all you have to do is provide a form snippet that you would normally embed in your website&#8217;s HTML code, paste it in the configuration extractor text area and hit the extract button. The tool will then try to extract the different values which are needed to get <a href="http://dannyvankooten.com/wordpress-plugins/newsletter-sign-up/">Newsletter Sign-up</a> to work. The tool is still pretty minimal but I will work on it to improve it during the next weeks.</p>
+<p>When the configuration settings the tool provided did not work, you can now more easily extract the right values yourself by using the cleaned up form that comes with the results of the configuration extractor. This is basically a stripped down version of your Sign-up form, which makes it way easier to extract the correct settings.</p>
+<p>Have a look at the following screenshots to get a better idea of how the tool works or download <a href="http://dannyvankooten.com/wordpress-plugins/newsletter-sign-up/">Newsletter Sign-Up v1.5</a> straight away!</p>
+<p><a href="http://dannyvankooten.com/wp-content/uploads/2011/11/config-extractor-input.jpg"><img class="aligncenter size-full wp-image-704" title="config-extractor-input" src="http://dannyvankooten.com/wp-content/uploads/2011/11/config-extractor-input.jpg" alt="" width="800" height="506" /></a><a href="http://dannyvankooten.com/wp-content/uploads/2011/11/config-extractor-results.jpg"><img class="aligncenter size-full wp-image-705" title="config-extractor-results" src="http://dannyvankooten.com/wp-content/uploads/2011/11/config-extractor-results.jpg" alt="" width="800" height="455" /></a></p>
+<p>Let me know what you think of this update. The next thing i&#8217;ll work on is error handling and providing an easier alternative to style the form, besides using plain CSS. Of course all suggestions on how to improve Newsletter Sign-Up are welcome !</p>
+<p><a href="http://dannyvankooten.com/703/newsletter-sign-up-added-configuration-helper-config-extractor/">Newsletter Sign-Up, added configuration helper: Config Extractor</a></p><img src="http://feeds.feedburner.com/~r/dannyvankooten/~4/JaHzuDw9hVg" height="1" width="1"/>";}i:2;a:14:{s:5:"title";s:63:"Danny raising money for prostate cancer by growing a moustache!";s:4:"link";s:61:"http://feedproxy.google.com/~r/dannyvankooten/~3/QEpgtmXeIrQ/";s:8:"comments";s:102:"http://dannyvankooten.com/690/danny-raising-money-for-prostate-cancer-by-growing-a-moustache/#comments";s:7:"pubdate";s:31:"Tue, 01 Nov 2011 20:57:03 +0000";s:2:"dc";a:1:{s:7:"creator";s:16:"Danny van Kooten";}s:8:"category";s:25:"Off-topicdonatingmovember";s:4:"guid";s:32:"http://dannyvankooten.com/?p=690";s:11:"description";s:449:"<p>Today I came across this great initiative to raise money for  different men&#8217;s health related projects. I thought this would make a great alternative to regular donations so here it is, me joining Movember! MOVEMBER (THE MONTH FORMERLY KNOWN AS NOVEMBER)...</p><p><a href="http://dannyvankooten.com/690/danny-raising-money-for-prostate-cancer-by-growing-a-moustache/">Danny raising money for prostate cancer by growing a moustache!</a></p>";s:7:"content";a:1:{s:7:"encoded";s:2452:"<p>Today I came across this great initiative to raise money for  different men&#8217;s health related projects. I thought this would make a great alternative to regular donations so here it is, me joining Movember!</p>
+<p><em><strong>MOVEMBER</strong> (THE MONTH FORMERLY KNOWN AS NOVEMBER) IS A MOUSTACHE GROWING CHARITY EVENT HELD DURING NOVEMBER EACH YEAR THAT RAISES FUNDS AND AWARENESS FOR MEN&#8217;S HEALTH.</em></p>
+<p>So, if you like my plugins and consider making me a donation, please consider this alternative. Donate some money to <a href="http://www.movember.com/m/1976294">my Movember account</a> to support me growing a moustache during November. Or even better: start growing a Movember Moustache yourself. In return, i&#8217;ll take weekly pictures of me and my upper lip!</p>
+<p><strong>1 November (after shaving)</strong></p>
+<p><strong></strong><a href="http://dannyvankooten.com/wp-content/uploads/2011/11/avatar-oktober.jpg"><img class="alignnone size-full wp-image-691" title="avatar-oktober" src="http://dannyvankooten.com/wp-content/uploads/2011/11/avatar-oktober.jpg" alt="" width="174" height="174" /></a></p>
+<p><strong>4 November, going for the &#8216;Trucker Mo&#8217;!</strong><br />
+<a href="http://dannyvankooten.com/wp-content/uploads/2011/11/PB050039.jpg"><img class="alignnone size-full wp-image-701" title="PB050039" src="http://dannyvankooten.com/wp-content/uploads/2011/11/PB050039.jpg" alt="" width="175" height="175" /></a></p>
+<p><strong>Expected result</strong></p>
+<p><a href="http://dannyvankooten.com/wp-content/uploads/2011/11/movember.jpg"><img class="alignnone size-full wp-image-692" title="movember" src="http://dannyvankooten.com/wp-content/uploads/2011/11/movember.jpg" alt="" width="174" height="174" /></a></p>
+<p>&nbsp;</p>
+<p><strong>Actual end result </strong></p>
+<p><a href="http://dannyvankooten.com/wp-content/uploads/2011/11/pasfoto.png"><img class="alignnone size-thumbnail wp-image-715" title="pasfoto" src="http://dannyvankooten.com/wp-content/uploads/2011/11/pasfoto-150x150.png" alt="" width="150" height="150" /></a><a href="http://dannyvankooten.com/wp-content/uploads/2011/11/pasfoto.png"><br />
+</a></p>
+<p><a href="http://dannyvankooten.com/690/danny-raising-money-for-prostate-cancer-by-growing-a-moustache/">Danny raising money for prostate cancer by growing a moustache!</a></p><img src="http://feeds.feedburner.com/~r/dannyvankooten/~4/QEpgtmXeIrQ" height="1" width="1"/>";}s:3:"wfw";a:1:{s:10:"commentrss";s:98:"http://dannyvankooten.com/690/danny-raising-money-for-prostate-cancer-by-growing-a-moustache/feed/";}s:5:"slash";a:1:{s:8:"comments";s:1:"1";}s:10:"feedburner";a:1:{s:8:"origlink";s:93:"http://dannyvankooten.com/690/danny-raising-money-for-prostate-cancer-by-growing-a-moustache/";}s:7:"summary";s:449:"<p>Today I came across this great initiative to raise money for  different men&#8217;s health related projects. I thought this would make a great alternative to regular donations so here it is, me joining Movember! MOVEMBER (THE MONTH FORMERLY KNOWN AS NOVEMBER)...</p><p><a href="http://dannyvankooten.com/690/danny-raising-money-for-prostate-cancer-by-growing-a-moustache/">Danny raising money for prostate cancer by growing a moustache!</a></p>";s:12:"atom_content";s:2452:"<p>Today I came across this great initiative to raise money for  different men&#8217;s health related projects. I thought this would make a great alternative to regular donations so here it is, me joining Movember!</p>
+<p><em><strong>MOVEMBER</strong> (THE MONTH FORMERLY KNOWN AS NOVEMBER) IS A MOUSTACHE GROWING CHARITY EVENT HELD DURING NOVEMBER EACH YEAR THAT RAISES FUNDS AND AWARENESS FOR MEN&#8217;S HEALTH.</em></p>
+<p>So, if you like my plugins and consider making me a donation, please consider this alternative. Donate some money to <a href="http://www.movember.com/m/1976294">my Movember account</a> to support me growing a moustache during November. Or even better: start growing a Movember Moustache yourself. In return, i&#8217;ll take weekly pictures of me and my upper lip!</p>
+<p><strong>1 November (after shaving)</strong></p>
+<p><strong></strong><a href="http://dannyvankooten.com/wp-content/uploads/2011/11/avatar-oktober.jpg"><img class="alignnone size-full wp-image-691" title="avatar-oktober" src="http://dannyvankooten.com/wp-content/uploads/2011/11/avatar-oktober.jpg" alt="" width="174" height="174" /></a></p>
+<p><strong>4 November, going for the &#8216;Trucker Mo&#8217;!</strong><br />
+<a href="http://dannyvankooten.com/wp-content/uploads/2011/11/PB050039.jpg"><img class="alignnone size-full wp-image-701" title="PB050039" src="http://dannyvankooten.com/wp-content/uploads/2011/11/PB050039.jpg" alt="" width="175" height="175" /></a></p>
+<p><strong>Expected result</strong></p>
+<p><a href="http://dannyvankooten.com/wp-content/uploads/2011/11/movember.jpg"><img class="alignnone size-full wp-image-692" title="movember" src="http://dannyvankooten.com/wp-content/uploads/2011/11/movember.jpg" alt="" width="174" height="174" /></a></p>
+<p>&nbsp;</p>
+<p><strong>Actual end result </strong></p>
+<p><a href="http://dannyvankooten.com/wp-content/uploads/2011/11/pasfoto.png"><img class="alignnone size-thumbnail wp-image-715" title="pasfoto" src="http://dannyvankooten.com/wp-content/uploads/2011/11/pasfoto-150x150.png" alt="" width="150" height="150" /></a><a href="http://dannyvankooten.com/wp-content/uploads/2011/11/pasfoto.png"><br />
+</a></p>
+<p><a href="http://dannyvankooten.com/690/danny-raising-money-for-prostate-cancer-by-growing-a-moustache/">Danny raising money for prostate cancer by growing a moustache!</a></p><img src="http://feeds.feedburner.com/~r/dannyvankooten/~4/QEpgtmXeIrQ" height="1" width="1"/>";}i:3;a:14:{s:5:"title";s:34:"Some Steve Jobs quotes about death";s:4:"link";s:61:"http://feedproxy.google.com/~r/dannyvankooten/~3/aMvozdRc8sc/";s:8:"comments";s:74:"http://dannyvankooten.com/680/some-steve-jobs-quotes-about-death/#comments";s:7:"pubdate";s:31:"Mon, 31 Oct 2011 21:14:43 +0000";s:2:"dc";a:1:{s:7:"creator";s:16:"Danny van Kooten";}s:8:"category";s:9:"Off-topic";s:4:"guid";s:32:"http://dannyvankooten.com/?p=680";s:11:"description";s:369:"<p>These are some quotes about death from Steve Jobs&#8217; commencement address at Stanford University in 2005 which I find very inspiring. As it turns out, Simple Code Snippets is not only good at showing code snippets, quotes do just fine...</p><p><a href="http://dannyvankooten.com/680/some-steve-jobs-quotes-about-death/">Some Steve Jobs quotes about death</a></p>";s:7:"content";a:1:{s:7:"encoded";s:1880:"<p>These are some quotes about death from Steve Jobs&#8217; commencement address at Stanford University in 2005 which I find very inspiring. As it turns out, <a href="http://dannyvankooten.com/wordpress-plugins/simple-code-snippets/">Simple Code Snippets</a> is not only good at showing code snippets, quotes do just fine too!</p>
+<p><em>
+<pre class="qoate-code">Remembering that I'll be dead soon is the most important tool I've ever encountered to help me make the big choices in life. Because almost everything — all external expectations, all pride, all fear of embarrassment or failure - these things just fall away in the face of death, leaving only what is truly important. Remembering that you are going to die is the best way I know to avoid the trap of thinking you have something to lose. You are already naked. There is no reason not to follow your heart.</pre>
+<p></em></p>
+<p><em>
+<pre class="qoate-code">Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma — which is living with the results of other people's thinking. Don't let the noise of others' opinions drown out your own inner voice. And most important, have the courage to follow your heart and intuition. They somehow already know what you truly want to become. Everything else is secondary.</pre>
+<p></em></p>
+<p><em>
+<pre class="qoate-code">Stay Hungry. Stay Foolish.</pre>
+<p></em></p>
+<p>You can find the complete text report or watch the video of his speak <a href="http://news.stanford.edu/news/2005/june15/jobs-061505.html">here</a>. If you have some spare time, definetly check it out if you haven&#8217;t already. Totally worth it!</p>
+<p><a href="http://dannyvankooten.com/680/some-steve-jobs-quotes-about-death/">Some Steve Jobs quotes about death</a></p><img src="http://feeds.feedburner.com/~r/dannyvankooten/~4/aMvozdRc8sc" height="1" width="1"/>";}s:3:"wfw";a:1:{s:10:"commentrss";s:70:"http://dannyvankooten.com/680/some-steve-jobs-quotes-about-death/feed/";}s:5:"slash";a:1:{s:8:"comments";s:1:"1";}s:10:"feedburner";a:1:{s:8:"origlink";s:65:"http://dannyvankooten.com/680/some-steve-jobs-quotes-about-death/";}s:7:"summary";s:369:"<p>These are some quotes about death from Steve Jobs&#8217; commencement address at Stanford University in 2005 which I find very inspiring. As it turns out, Simple Code Snippets is not only good at showing code snippets, quotes do just fine...</p><p><a href="http://dannyvankooten.com/680/some-steve-jobs-quotes-about-death/">Some Steve Jobs quotes about death</a></p>";s:12:"atom_content";s:1880:"<p>These are some quotes about death from Steve Jobs&#8217; commencement address at Stanford University in 2005 which I find very inspiring. As it turns out, <a href="http://dannyvankooten.com/wordpress-plugins/simple-code-snippets/">Simple Code Snippets</a> is not only good at showing code snippets, quotes do just fine too!</p>
+<p><em>
+<pre class="qoate-code">Remembering that I'll be dead soon is the most important tool I've ever encountered to help me make the big choices in life. Because almost everything — all external expectations, all pride, all fear of embarrassment or failure - these things just fall away in the face of death, leaving only what is truly important. Remembering that you are going to die is the best way I know to avoid the trap of thinking you have something to lose. You are already naked. There is no reason not to follow your heart.</pre>
+<p></em></p>
+<p><em>
+<pre class="qoate-code">Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma — which is living with the results of other people's thinking. Don't let the noise of others' opinions drown out your own inner voice. And most important, have the courage to follow your heart and intuition. They somehow already know what you truly want to become. Everything else is secondary.</pre>
+<p></em></p>
+<p><em>
+<pre class="qoate-code">Stay Hungry. Stay Foolish.</pre>
+<p></em></p>
+<p>You can find the complete text report or watch the video of his speak <a href="http://news.stanford.edu/news/2005/june15/jobs-061505.html">here</a>. If you have some spare time, definetly check it out if you haven&#8217;t already. Totally worth it!</p>
+<p><a href="http://dannyvankooten.com/680/some-steve-jobs-quotes-about-death/">Some Steve Jobs quotes about death</a></p><img src="http://feeds.feedburner.com/~r/dannyvankooten/~4/aMvozdRc8sc" height="1" width="1"/>";}i:4;a:14:{s:5:"title";s:52:"Enabling shortcodes in widgets, quick WordPress tip.";s:4:"link";s:61:"http://feedproxy.google.com/~r/dannyvankooten/~3/DgezCAOK9AM/";s:8:"comments";s:90:"http://dannyvankooten.com/630/enabling-shortcodes-in-widgets-quick-wordpress-tip/#comments";s:7:"pubdate";s:31:"Sun, 17 Jul 2011 12:01:20 +0000";s:2:"dc";a:1:{s:7:"creator";s:16:"Danny van Kooten";}s:8:"category";s:26:"WordPressshortcodeswidgets";s:4:"guid";s:32:"http://dannyvankooten.com/?p=630";s:11:"description";s:383:"<p>Let&#8217;s say you&#8217;re developing a plugin that registers a shortcode so that a user can output some kind of form in his posts. Now, the user wants to output the form in one of his widget area&#8217;s. One way to...</p><p><a href="http://dannyvankooten.com/630/enabling-shortcodes-in-widgets-quick-wordpress-tip/">Enabling shortcodes in widgets, quick WordPress tip.</a></p>";s:7:"content";a:1:{s:7:"encoded";s:3457:"<p>Let&#8217;s say you&#8217;re developing a plugin that registers a shortcode so that a user can output some kind of form in his posts. Now, the user wants to output the form in one of his widget area&#8217;s. One way to accomplish this would be to explicitly create a widget for it, add some fields like &#8216;text_before&#8217;  and &#8216;text_after&#8217; and use that to output and add some before and after text to the form. </p>
+<p>An easier approach would be to just enable the shortcode so that your user can type some text in one of WordPress&#8217;  default text widgets (or a <a href="http://dannyvankooten.com/wordpress-plugins/wysiwyg-widgets/">WYSIWYG Widget</a>, to make things a bit easier) and use the shortcode wherever he wants to output the form, or whatever it is your shortcode provides.</p>
+<p>By default, shortcodes in text widgets are not enabled in WordPress. However, since the text from a text widget runs trough a filter called &#8216;widget_text&#8217;, enabling them would be pretty easy. In short,everything that&#8217;s needed is one simple line of code:</p>
+<pre class="qoate-code">
+
+add_filter('widget_text', 'do_shortcode');
+</pre>
+<p>Just using this line of code could lead to some problems though. Best thing would be to add a priority so that <em>do_shortcode</em> runs after <em>wpautop</em> (the function that converts linebreaks into paragraph&#8217;s). Looking at <a href="http://core.trac.wordpress.org/browser/tags/3.2.1/wp-includes/shortcodes.php#L296">wp-includes/shortcodes.php</a> you&#8217;ll find that the default shortcode filter priorty is 11 so that is what we&#8217;re gonna pass as a 3rd parameter.</p>
+<pre class="qoate-code">add_filter( 'widget_text', 'do_shortcode', 11);</pre>
+<p>Now, to ensure that the output of the shortcode function does not get wrapped in &lt;p&gt; tags because of wpautop it is best to add one more filter, &#8216;<a href="http://core.trac.wordpress.org/browser/tags/3.2.1/wp-includes/formatting.php#L235">shortcode_unautop</a>&#8216;.</p>
+<pre class="qoate-code">
+add_filter( 'widget_text', 'shortcode_unautop');
+add_filter( 'widget_text', 'do_shortcode', 11);
+</pre>
+<p><em>Note for less tech savvy readers: the above snippet goes into your theme&#8217;s functions.php file.</em></p>
+<p>Of course you can use the above snippet for pretty much every filter that&#8217;s out there, comment_text, term_description, manual filters, anything really. </p>
+<p>If you&#8217;re a plugin author and you have a custom widget, another way to enable shortcodes inside your widget is to run the content trough the do_shortcode function. So, let&#8217;s say your Widget&#8217;s content is stored inside a variable called $text, you&#8217;ll pass this variable as a parameter to the do_shortcode function.</p>
+<pre class="qoate-code">
+...
+$output_text = do_shortcode($text);
+echo $output_text;
+...
+</pre>
+<p>Another, more flexible way would be to create a filter for your widget and hook the do_shortcode function to that filter. But, if enabling shortcodes is all that you&#8217;re looking for, the above snippet will do just fine!</p>
+<p>Got a nice addition to this post? <a href="#respond">Let me know trough a comment</a>!</p>
+<p><a href="http://dannyvankooten.com/630/enabling-shortcodes-in-widgets-quick-wordpress-tip/">Enabling shortcodes in widgets, quick WordPress tip.</a></p><img src="http://feeds.feedburner.com/~r/dannyvankooten/~4/DgezCAOK9AM" height="1" width="1"/>";}s:3:"wfw";a:1:{s:10:"commentrss";s:86:"http://dannyvankooten.com/630/enabling-shortcodes-in-widgets-quick-wordpress-tip/feed/";}s:5:"slash";a:1:{s:8:"comments";s:1:"3";}s:10:"feedburner";a:1:{s:8:"origlink";s:81:"http://dannyvankooten.com/630/enabling-shortcodes-in-widgets-quick-wordpress-tip/";}s:7:"summary";s:383:"<p>Let&#8217;s say you&#8217;re developing a plugin that registers a shortcode so that a user can output some kind of form in his posts. Now, the user wants to output the form in one of his widget area&#8217;s. One way to...</p><p><a href="http://dannyvankooten.com/630/enabling-shortcodes-in-widgets-quick-wordpress-tip/">Enabling shortcodes in widgets, quick WordPress tip.</a></p>";s:12:"atom_content";s:3457:"<p>Let&#8217;s say you&#8217;re developing a plugin that registers a shortcode so that a user can output some kind of form in his posts. Now, the user wants to output the form in one of his widget area&#8217;s. One way to accomplish this would be to explicitly create a widget for it, add some fields like &#8216;text_before&#8217;  and &#8216;text_after&#8217; and use that to output and add some before and after text to the form. </p>
+<p>An easier approach would be to just enable the shortcode so that your user can type some text in one of WordPress&#8217;  default text widgets (or a <a href="http://dannyvankooten.com/wordpress-plugins/wysiwyg-widgets/">WYSIWYG Widget</a>, to make things a bit easier) and use the shortcode wherever he wants to output the form, or whatever it is your shortcode provides.</p>
+<p>By default, shortcodes in text widgets are not enabled in WordPress. However, since the text from a text widget runs trough a filter called &#8216;widget_text&#8217;, enabling them would be pretty easy. In short,everything that&#8217;s needed is one simple line of code:</p>
+<pre class="qoate-code">
+
+add_filter('widget_text', 'do_shortcode');
+</pre>
+<p>Just using this line of code could lead to some problems though. Best thing would be to add a priority so that <em>do_shortcode</em> runs after <em>wpautop</em> (the function that converts linebreaks into paragraph&#8217;s). Looking at <a href="http://core.trac.wordpress.org/browser/tags/3.2.1/wp-includes/shortcodes.php#L296">wp-includes/shortcodes.php</a> you&#8217;ll find that the default shortcode filter priorty is 11 so that is what we&#8217;re gonna pass as a 3rd parameter.</p>
+<pre class="qoate-code">add_filter( 'widget_text', 'do_shortcode', 11);</pre>
+<p>Now, to ensure that the output of the shortcode function does not get wrapped in &lt;p&gt; tags because of wpautop it is best to add one more filter, &#8216;<a href="http://core.trac.wordpress.org/browser/tags/3.2.1/wp-includes/formatting.php#L235">shortcode_unautop</a>&#8216;.</p>
+<pre class="qoate-code">
+add_filter( 'widget_text', 'shortcode_unautop');
+add_filter( 'widget_text', 'do_shortcode', 11);
+</pre>
+<p><em>Note for less tech savvy readers: the above snippet goes into your theme&#8217;s functions.php file.</em></p>
+<p>Of course you can use the above snippet for pretty much every filter that&#8217;s out there, comment_text, term_description, manual filters, anything really. </p>
+<p>If you&#8217;re a plugin author and you have a custom widget, another way to enable shortcodes inside your widget is to run the content trough the do_shortcode function. So, let&#8217;s say your Widget&#8217;s content is stored inside a variable called $text, you&#8217;ll pass this variable as a parameter to the do_shortcode function.</p>
+<pre class="qoate-code">
+...
+$output_text = do_shortcode($text);
+echo $output_text;
+...
+</pre>
+<p>Another, more flexible way would be to create a filter for your widget and hook the do_shortcode function to that filter. But, if enabling shortcodes is all that you&#8217;re looking for, the above snippet will do just fine!</p>
+<p>Got a nice addition to this post? <a href="#respond">Let me know trough a comment</a>!</p>
+<p><a href="http://dannyvankooten.com/630/enabling-shortcodes-in-widgets-quick-wordpress-tip/">Enabling shortcodes in widgets, quick WordPress tip.</a></p><img src="http://feeds.feedburner.com/~r/dannyvankooten/~4/DgezCAOK9AM" height="1" width="1"/>";}i:5;a:14:{s:5:"title";s:32:"Conditional Widgets in WordPress";s:4:"link";s:61:"http://feedproxy.google.com/~r/dannyvankooten/~3/T3RAZop2fqg/";s:8:"comments";s:77:"http://dannyvankooten.com/613/dynamic-conditional-widgets-wordpress/#comments";s:7:"pubdate";s:31:"Sun, 10 Jul 2011 09:08:02 +0000";s:2:"dc";a:1:{s:7:"creator";s:16:"Danny van Kooten";}s:8:"category";s:32:"WordPressPluginsUsabilitywidgets";s:4:"guid";s:32:"http://dannyvankooten.com/?p=613";s:11:"description";s:362:"<p>While working on a WordPress theme for a cliënt he stated that he wanted to have page dependent content in the sidebar. In other words, a sitewide widget wouldn&#8217;t do because he wanted to hook widgets to certain pages, posts...</p><p><a href="http://dannyvankooten.com/613/dynamic-conditional-widgets-wordpress/">Conditional Widgets in WordPress</a></p>";s:7:"content";a:1:{s:7:"encoded";s:4596:"<p>While working on a WordPress theme for a cliënt he stated that he wanted to have page dependent content in the sidebar. In other words, a sitewide widget wouldn&#8217;t do because he wanted to hook widgets to certain pages, posts or categories. For example: the homepage showed widget #1 while the contact and the about-me page showed widget #2.</p>
+<p>I&#8217;ve started looking into some dynamic / conditional widget plugins. Some worked pretty good, some were flawed and most were just crap. These are the ones that I found to be quite helpful and with decent code quality, they might be of use to you too.</p>
+<h3>Widget Logic</h3>
+<p><img class="alignnone size-full wp-image-619" title="Widget Logic" src="http://dannyvankooten.com/wp-content/uploads/2011/07/widget-logic.png" alt="" width="401" height="31" /></p>
+<p>This is my absolute favourite, although it might not be the best choice if you&#8217;re installing it so your cliënt (with no PHP knowledge) can use it later on. This plugin adds one small (but o so powerful) input field beneath every widget where you can specify any of <a href="http://codex.wordpress.org/Conditional_Tags">WordPress&#8217; conditional tags</a>. This makes it possible to restrict a certain widget to a certain post, multiple posts, pages, categories, basically anything you like.</p>
+<p>Of course, the downside is that the plugin user needs to know a thing or two about WordPress conditionals or PHP in general. If this isn&#8217;t the case you might be better of with one of the other plugins in this article. If the intended user has knowledge or is willing to look into WP Conditionals I highly suggest using this plugin though, as there are practically no limits.</p>
+<p><a href="http://wordpress.org/extend/plugins/widget-logic/">» Widget Logic on the WordPress repository</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3></h3>
+<h3>Widget Context</h3>
+<p><img title="Widget Context" src="http://dannyvankooten.com/wp-content/uploads/2011/07/widget-context.png" alt="" width="738" height="202" /></p>
+<p>This plugin adds some display options to all active widgets where you can specify some basic conditionals, as you can see in above screenshot. The nice touch is the textarea where you can specify certain URL&#8217;s to show the widget on. You are not limited to one URL and that makes this widget a perfect choice for users with no knowledge of WordPress conditionals. You can use some wildcards to match multiple URL&#8217;s with just one rule.</p>
+<p><a href="http://wordpress.org/extend/plugins/widget-context/">» Widget Context in the WordPress repository</a></p>
+<p>&nbsp;</p>
+<h3></h3>
+<h3>Conditional Widgets</h3>
+<p><img class="alignright size-full wp-image-620" title="Conditional Widgets" src="http://dannyvankooten.com/wp-content/uploads/2011/07/conditional-widgets.png" alt="" width="330" height="320" /></p>
+<p>Like widget context, this plugin adds display options to all your active widgets where you can apply some conditionals where to show or hide the widget. Although you can&#8217;t restrict widgets to certain posts, you can add conditionals to show or hide the widget at certain category archives (+ posts inside that category) and certain pages only.</p>
+<p>The code quality is above average (there is some crap out there..), it&#8217;s ease of use is perfect for cliënts with no understanding of PHP / HTML / any other webdevelopment language. All that&#8217;s needed is some basic logic.</p>
+<p><a href="http://wordpress.org/extend/plugins/conditional-widgets/">» Conditional Widgets in WordPress repository</a></p>
+<p>&nbsp;</p>
+<h3 style="clear: both;"></h3>
+<p>&nbsp;</p>
+<p>With either one of these 3 plugins you should be able to create a one-to-many relationship between widgets and posts. Do you know a plugin that takes care of creating &#8216;dynamic widgets&#8217; in a neat and easy-to-use way that isn&#8217;t covered in this post? <a href="#respond">Let me know in the comments</a>!</p>
+<p>If you&#8217;re looking for a way to display content from your post in a widget area (a one-to-one relationship), i&#8217;m actually thinking about developing a plugin for this. There are some out there already, but the ones i&#8217;ve looked at are crappy coded and do not support visual editors. Like the idea? <a href="#respond">Let me know</a>, I won&#8217;t make it if you won&#8217;t use it!</p>
+<p><a href="http://dannyvankooten.com/613/dynamic-conditional-widgets-wordpress/">Conditional Widgets in WordPress</a></p><img src="http://feeds.feedburner.com/~r/dannyvankooten/~4/T3RAZop2fqg" height="1" width="1"/>";}s:3:"wfw";a:1:{s:10:"commentrss";s:73:"http://dannyvankooten.com/613/dynamic-conditional-widgets-wordpress/feed/";}s:5:"slash";a:1:{s:8:"comments";s:2:"11";}s:10:"feedburner";a:1:{s:8:"origlink";s:68:"http://dannyvankooten.com/613/dynamic-conditional-widgets-wordpress/";}s:7:"summary";s:362:"<p>While working on a WordPress theme for a cliënt he stated that he wanted to have page dependent content in the sidebar. In other words, a sitewide widget wouldn&#8217;t do because he wanted to hook widgets to certain pages, posts...</p><p><a href="http://dannyvankooten.com/613/dynamic-conditional-widgets-wordpress/">Conditional Widgets in WordPress</a></p>";s:12:"atom_content";s:4596:"<p>While working on a WordPress theme for a cliënt he stated that he wanted to have page dependent content in the sidebar. In other words, a sitewide widget wouldn&#8217;t do because he wanted to hook widgets to certain pages, posts or categories. For example: the homepage showed widget #1 while the contact and the about-me page showed widget #2.</p>
+<p>I&#8217;ve started looking into some dynamic / conditional widget plugins. Some worked pretty good, some were flawed and most were just crap. These are the ones that I found to be quite helpful and with decent code quality, they might be of use to you too.</p>
+<h3>Widget Logic</h3>
+<p><img class="alignnone size-full wp-image-619" title="Widget Logic" src="http://dannyvankooten.com/wp-content/uploads/2011/07/widget-logic.png" alt="" width="401" height="31" /></p>
+<p>This is my absolute favourite, although it might not be the best choice if you&#8217;re installing it so your cliënt (with no PHP knowledge) can use it later on. This plugin adds one small (but o so powerful) input field beneath every widget where you can specify any of <a href="http://codex.wordpress.org/Conditional_Tags">WordPress&#8217; conditional tags</a>. This makes it possible to restrict a certain widget to a certain post, multiple posts, pages, categories, basically anything you like.</p>
+<p>Of course, the downside is that the plugin user needs to know a thing or two about WordPress conditionals or PHP in general. If this isn&#8217;t the case you might be better of with one of the other plugins in this article. If the intended user has knowledge or is willing to look into WP Conditionals I highly suggest using this plugin though, as there are practically no limits.</p>
+<p><a href="http://wordpress.org/extend/plugins/widget-logic/">» Widget Logic on the WordPress repository</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3></h3>
+<h3>Widget Context</h3>
+<p><img title="Widget Context" src="http://dannyvankooten.com/wp-content/uploads/2011/07/widget-context.png" alt="" width="738" height="202" /></p>
+<p>This plugin adds some display options to all active widgets where you can specify some basic conditionals, as you can see in above screenshot. The nice touch is the textarea where you can specify certain URL&#8217;s to show the widget on. You are not limited to one URL and that makes this widget a perfect choice for users with no knowledge of WordPress conditionals. You can use some wildcards to match multiple URL&#8217;s with just one rule.</p>
+<p><a href="http://wordpress.org/extend/plugins/widget-context/">» Widget Context in the WordPress repository</a></p>
+<p>&nbsp;</p>
+<h3></h3>
+<h3>Conditional Widgets</h3>
+<p><img class="alignright size-full wp-image-620" title="Conditional Widgets" src="http://dannyvankooten.com/wp-content/uploads/2011/07/conditional-widgets.png" alt="" width="330" height="320" /></p>
+<p>Like widget context, this plugin adds display options to all your active widgets where you can apply some conditionals where to show or hide the widget. Although you can&#8217;t restrict widgets to certain posts, you can add conditionals to show or hide the widget at certain category archives (+ posts inside that category) and certain pages only.</p>
+<p>The code quality is above average (there is some crap out there..), it&#8217;s ease of use is perfect for cliënts with no understanding of PHP / HTML / any other webdevelopment language. All that&#8217;s needed is some basic logic.</p>
+<p><a href="http://wordpress.org/extend/plugins/conditional-widgets/">» Conditional Widgets in WordPress repository</a></p>
+<p>&nbsp;</p>
+<h3 style="clear: both;"></h3>
+<p>&nbsp;</p>
+<p>With either one of these 3 plugins you should be able to create a one-to-many relationship between widgets and posts. Do you know a plugin that takes care of creating &#8216;dynamic widgets&#8217; in a neat and easy-to-use way that isn&#8217;t covered in this post? <a href="#respond">Let me know in the comments</a>!</p>
+<p>If you&#8217;re looking for a way to display content from your post in a widget area (a one-to-one relationship), i&#8217;m actually thinking about developing a plugin for this. There are some out there already, but the ones i&#8217;ve looked at are crappy coded and do not support visual editors. Like the idea? <a href="#respond">Let me know</a>, I won&#8217;t make it if you won&#8217;t use it!</p>
+<p><a href="http://dannyvankooten.com/613/dynamic-conditional-widgets-wordpress/">Conditional Widgets in WordPress</a></p><img src="http://feeds.feedburner.com/~r/dannyvankooten/~4/T3RAZop2fqg" height="1" width="1"/>";}i:6;a:14:{s:5:"title";s:55:"Configuring Newsletter Sign-Up – the definitive guide";s:4:"link";s:61:"http://feedproxy.google.com/~r/dannyvankooten/~3/BVPQmc5tRZA/";s:8:"comments";s:91:"http://dannyvankooten.com/571/configuring-newsletter-sign-up-the-definitive-guide/#comments";s:7:"pubdate";s:31:"Sun, 03 Jul 2011 13:22:45 +0000";s:2:"dc";a:1:{s:7:"creator";s:16:"Danny van Kooten";}s:8:"category";s:48:"WordPressmailinglistnewsletternewsletter-sign-up";s:4:"guid";s:32:"http://dannyvankooten.com/?p=571";s:11:"description";s:440:"<p>After releasing 'Qoate Newsletter Sign-Up' a year ago, recoding it into 'Newsletter Sign-Up' and 25.000+ total downloads i've been getting quite a lot of questions on how to properly configure the plugin for the various newsletter services out there. I'm not surprised..</p><p><a href="http://dannyvankooten.com/571/configuring-newsletter-sign-up-the-definitive-guide/">Configuring Newsletter Sign-Up &#8211; the definitive guide</a></p>";s:7:"content";a:1:{s:7:"encoded";s:8583:"<div id="table-of-contents">
+<h3>Table of contents</h3>
+<ol>
+<li><a href="#downloading">Downloading &amp; Installing</a></li>
+<li><a href="#configuring">Configuring Newsletter Sign-up</a>
+<ol>
+<li><a href="#configuring-mailchimp">MailChimp API</a></li>
+<li><a href="#configuring-ymlp">YMLP API</a></li>
+<li><a href="#configuring-custom">Other newsletter services</a></li>
+</ol>
+</li>
+<li><a href="#testing">Testing</a></li>
+</ol>
+</div>
+<p>After releasing &#8216;Qoate Newsletter Sign-Up&#8217; a year ago, recoding it into &#8216;<a href="http://dannyvankooten.com/wordpress-plugins/newsletter-sign-up/">Newsletter Sign-up</a>&#8216; and 25.000+ total downloads i&#8217;ve been getting quite a lot of questions on how to properly configure the plugin for the various newsletter services out there. I&#8217;m not surprised, configuring NSU isn&#8217;t quite easy for the non-tech savvy WP users. Time to make things easier by writing a comprehensive guide on how to configure Newsletter Sign-Up, with screenshots!</p>
+<h2 id="downloading">Downloading and installing Newsletter Sign-up</h2>
+<p>You can download and install Newsletter Sign-up just like you would with any other plugin. Head over to the WordPress plugin repository, search for &#8216;newsletter sign-up&#8217; (which should lead you <a href="http://wordpress.org/extend/plugins/newsletter-sign-up/">here</a>) and hit the red download button.</p>
+<p>Extract the files of &#8216;<em>newsletter-sign-up.zip</em>&#8216; into your <em>wp-content/plugins</em> folder and activate the plugin trough your WordPress admin panel. Not familiar with installing <a title="WordPress Plugins" href="http://dannyvankooten.com/wordpress-plugins/">WordPress plugins</a>? The WP Codex has a nice article on <a href="http://codex.wordpress.org/Managing_Plugins#Installing_Plugins">installing and managing plugins</a> which should help you out.</p>
+<h2 id="configuring">Configuring Newsletter Sign-up</h2>
+<p>If you&#8217;ve sucessfully installed NSU your plugins page in the WP Admin will look somewhat like this.<br />
+<img src="http://dannyvankooten.com/wp-content/uploads/2011/07/newsletter-sign-up-activated-plugin.jpg" alt="" title="newsletter-sign-up-activated-plugin" width="726" height="45" class="aligncenter size-full wp-image-581" /></p>
+<p>Hit the settings button, which should take you to the Newsletter Sign-Up Configuration page. This page is divided into a few parts, the one that is the most important is also the hardest: <strong>General Settings / Newsletter Configuration</strong>. These settings are essential if you want to get NSU to work with your newsletter service. </p>
+<p><img src="http://dannyvankooten.com/wp-content/uploads/2011/07/newsletter-sign-up-configuration-screen.jpg" alt="" title="newsletter-sign-up-configuration-screen" width="758" height="431" class="aligncenter size-full wp-image-583" /></p>
+<p>What you fill in here depends on your newsletter service, if you select a mailinglist provider from the select box you&#8217;ll see the page change and some more setting fields will apear, or some fields will be autofilled for you to make things a bit easier. You could however just leave the select box at &#8216;&#8211; other / advanced&#8217; and fill in the correct values yourself. If you&#8217;re using MailChimp or YMLP you have the option to use their API&#8217;s, which I recommend by the way. Let&#8217;s start with those two.</p>
+<h3 id="configuring-mailchimp">Using the MailChimp API</h3>
+<p>Select MailChimp from the newsletter provider selectbox and tick the checkbox that says &#8216;Use MailChimp API&#8217;. The plugin will now ask you for two values, your MailChimp API key and your MailChimp list ID. If you&#8217;re not sure on where to get those just hit the <strong>?</strong>-links and you&#8217;ll be taken to a page with more information on where to get those.</p>
+<p><img src="http://dannyvankooten.com/wp-content/uploads/2011/07/newsletter-sign-up-mailchimp-api.jpg" alt="" title="newsletter-sign-up-mailchimp-api" width="597" height="159" class="aligncenter size-full wp-image-585" /></p>
+<h3 id="configuring-ymlp">Using the YMLP API</h3>
+<p>Select YMLP from the newsletter provider selectbox and tick the checkbox that says &#8220;Use YMLP API&#8221;. You will now need to provide three values, your YMLP API key, your YMLP username and your YMLP group ID. To get your API Key, just hit the <strong>?</strong>-link.</p>
+<p>Getting your YMLP group ID is a bit harder. Go to your YMLP dashboard and take a look at the &#8220;Your contacts&#8221; section. Hover the icons for each of your lists and you&#8217;ll notice that each URL ends with <em>&#038;groupid=X</em>. The X is the number you&#8217;ll need here. If you only have one default list this number will most likely be 1.</p>
+<p><img src="http://dannyvankooten.com/wp-content/uploads/2011/07/newsletter-sign-up-ymlp-group-id.jpg" alt="" title="newsletter-sign-up-ymlp-group-id" width="494" height="59" class="aligncenter size-full wp-image-587" /></p>
+<p>A correctly configured YMLP API should make your NSU configuration screen look somewhat like this.</p>
+<p><img src="http://dannyvankooten.com/wp-content/uploads/2011/07/newsletter-sign-up-ymlp-api.jpg" alt="" title="newsletter-sign-up-ymlp-api" width="595" height="215" class="aligncenter size-full wp-image-589" /></p>
+<h3 id="configuring-custom">Other Newsletter providers / custom settings</h3>
+<p>If you&#8217;re using iContact, Aweber, PHPList, ConstantContact or some other newsletter provider, correctly configuring Newsletter Sign Up will be somewhat harder but definitely  not impossible! </p>
+<p>To understand what we&#8217;re trying to do it is important that you understand how NSU works. All newsletter services provide you with a sign-up form in HTML which you can embed on your website. NSU mimics this sign-up request by sending a request to the specified action URL and sending some values along with the request, like the email address of the person who is trying to sign-up. </p>
+<p>So, let&#8217;s get into it. First, select &#8216;&#8211; other/ advanced&#8217; or your newsletter provider from the select box. You&#8217;ll see a few input fields which (for a minimum) ask for a <strong>form action</strong> and an <strong>email identifier</strong>. </p>
+<p>Head over to your mailinglist service and look for a sign-up form which you can embed. You can extract the form action and email identifier from this HTML snippet. Take a look at the following picture to get a better understanding of what values you need. I really hope this picture makes any sense&#8230;</p>
+<p><img src="http://dannyvankooten.com/wp-content/uploads/2011/07/newsletter-sign-up-extract-values.jpg" alt="" title="newsletter-sign-up-extract-values" width="758" height="241" class="aligncenter size-full wp-image-591" /></p>
+<p>Although the snippet in the above picture is overly simplified it should give you an idea of what to look for and which values you&#8217;ll need. Basically, all the input fields need to be covered so NSU can send those values along with the request to the form action whenever someone uses NSU to sign-up to your email list.</p>
+<h2 id="testing">Testing if Newsletter Sign-Up is properly configured</h2>
+<p>Testing to see if you&#8217;ve properly configured Newsletter Sign-up is pretty straightforward. Using the checkbox at you&#8217;re comment form that asks people if they&#8217;re willing to sign-up to your newsletter? Just leave a test comment, tick the checkbox and see if it the email adress you used gets added to your email list. </p>
+<p>One small note though. Make sure that you&#8217;re using an email address that is not already on your list since most newsletter services tend to ignore those requests. Also, be patient for at least a few minutes and check your spam folder!</p>
+<h4>Still not getting it? Try this.</h4>
+<ul>
+<li><a href="http://unwireme.com/boost-your-e-mail-newsletter-sign-up-conversion-rate-with-this-free-tip/">http://unwireme.com/boost-your-e-mail-newsletter-sign-up-conversion-rate-with-this-free-tip/</a></li>
+<li>Drop me a line trough the <a href="http://wordpress.org/tags/newsletter-sign-up?forum_id=10">support forums for NSU</a>, include your sign-up form and i&#8217;ll extract the values as soon as I find a spare minute!</li>
+</ul>
+<p><a href="http://dannyvankooten.com/571/configuring-newsletter-sign-up-the-definitive-guide/">Configuring Newsletter Sign-Up &#8211; the definitive guide</a></p><img src="http://feeds.feedburner.com/~r/dannyvankooten/~4/BVPQmc5tRZA" height="1" width="1"/>";}s:3:"wfw";a:1:{s:10:"commentrss";s:87:"http://dannyvankooten.com/571/configuring-newsletter-sign-up-the-definitive-guide/feed/";}s:5:"slash";a:1:{s:8:"comments";s:2:"64";}s:10:"feedburner";a:1:{s:8:"origlink";s:82:"http://dannyvankooten.com/571/configuring-newsletter-sign-up-the-definitive-guide/";}s:7:"summary";s:440:"<p>After releasing 'Qoate Newsletter Sign-Up' a year ago, recoding it into 'Newsletter Sign-Up' and 25.000+ total downloads i've been getting quite a lot of questions on how to properly configure the plugin for the various newsletter services out there. I'm not surprised..</p><p><a href="http://dannyvankooten.com/571/configuring-newsletter-sign-up-the-definitive-guide/">Configuring Newsletter Sign-Up &#8211; the definitive guide</a></p>";s:12:"atom_content";s:8583:"<div id="table-of-contents">
+<h3>Table of contents</h3>
+<ol>
+<li><a href="#downloading">Downloading &amp; Installing</a></li>
+<li><a href="#configuring">Configuring Newsletter Sign-up</a>
+<ol>
+<li><a href="#configuring-mailchimp">MailChimp API</a></li>
+<li><a href="#configuring-ymlp">YMLP API</a></li>
+<li><a href="#configuring-custom">Other newsletter services</a></li>
+</ol>
+</li>
+<li><a href="#testing">Testing</a></li>
+</ol>
+</div>
+<p>After releasing &#8216;Qoate Newsletter Sign-Up&#8217; a year ago, recoding it into &#8216;<a href="http://dannyvankooten.com/wordpress-plugins/newsletter-sign-up/">Newsletter Sign-up</a>&#8216; and 25.000+ total downloads i&#8217;ve been getting quite a lot of questions on how to properly configure the plugin for the various newsletter services out there. I&#8217;m not surprised, configuring NSU isn&#8217;t quite easy for the non-tech savvy WP users. Time to make things easier by writing a comprehensive guide on how to configure Newsletter Sign-Up, with screenshots!</p>
+<h2 id="downloading">Downloading and installing Newsletter Sign-up</h2>
+<p>You can download and install Newsletter Sign-up just like you would with any other plugin. Head over to the WordPress plugin repository, search for &#8216;newsletter sign-up&#8217; (which should lead you <a href="http://wordpress.org/extend/plugins/newsletter-sign-up/">here</a>) and hit the red download button.</p>
+<p>Extract the files of &#8216;<em>newsletter-sign-up.zip</em>&#8216; into your <em>wp-content/plugins</em> folder and activate the plugin trough your WordPress admin panel. Not familiar with installing <a title="WordPress Plugins" href="http://dannyvankooten.com/wordpress-plugins/">WordPress plugins</a>? The WP Codex has a nice article on <a href="http://codex.wordpress.org/Managing_Plugins#Installing_Plugins">installing and managing plugins</a> which should help you out.</p>
+<h2 id="configuring">Configuring Newsletter Sign-up</h2>
+<p>If you&#8217;ve sucessfully installed NSU your plugins page in the WP Admin will look somewhat like this.<br />
+<img src="http://dannyvankooten.com/wp-content/uploads/2011/07/newsletter-sign-up-activated-plugin.jpg" alt="" title="newsletter-sign-up-activated-plugin" width="726" height="45" class="aligncenter size-full wp-image-581" /></p>
+<p>Hit the settings button, which should take you to the Newsletter Sign-Up Configuration page. This page is divided into a few parts, the one that is the most important is also the hardest: <strong>General Settings / Newsletter Configuration</strong>. These settings are essential if you want to get NSU to work with your newsletter service. </p>
+<p><img src="http://dannyvankooten.com/wp-content/uploads/2011/07/newsletter-sign-up-configuration-screen.jpg" alt="" title="newsletter-sign-up-configuration-screen" width="758" height="431" class="aligncenter size-full wp-image-583" /></p>
+<p>What you fill in here depends on your newsletter service, if you select a mailinglist provider from the select box you&#8217;ll see the page change and some more setting fields will apear, or some fields will be autofilled for you to make things a bit easier. You could however just leave the select box at &#8216;&#8211; other / advanced&#8217; and fill in the correct values yourself. If you&#8217;re using MailChimp or YMLP you have the option to use their API&#8217;s, which I recommend by the way. Let&#8217;s start with those two.</p>
+<h3 id="configuring-mailchimp">Using the MailChimp API</h3>
+<p>Select MailChimp from the newsletter provider selectbox and tick the checkbox that says &#8216;Use MailChimp API&#8217;. The plugin will now ask you for two values, your MailChimp API key and your MailChimp list ID. If you&#8217;re not sure on where to get those just hit the <strong>?</strong>-links and you&#8217;ll be taken to a page with more information on where to get those.</p>
+<p><img src="http://dannyvankooten.com/wp-content/uploads/2011/07/newsletter-sign-up-mailchimp-api.jpg" alt="" title="newsletter-sign-up-mailchimp-api" width="597" height="159" class="aligncenter size-full wp-image-585" /></p>
+<h3 id="configuring-ymlp">Using the YMLP API</h3>
+<p>Select YMLP from the newsletter provider selectbox and tick the checkbox that says &#8220;Use YMLP API&#8221;. You will now need to provide three values, your YMLP API key, your YMLP username and your YMLP group ID. To get your API Key, just hit the <strong>?</strong>-link.</p>
+<p>Getting your YMLP group ID is a bit harder. Go to your YMLP dashboard and take a look at the &#8220;Your contacts&#8221; section. Hover the icons for each of your lists and you&#8217;ll notice that each URL ends with <em>&#038;groupid=X</em>. The X is the number you&#8217;ll need here. If you only have one default list this number will most likely be 1.</p>
+<p><img src="http://dannyvankooten.com/wp-content/uploads/2011/07/newsletter-sign-up-ymlp-group-id.jpg" alt="" title="newsletter-sign-up-ymlp-group-id" width="494" height="59" class="aligncenter size-full wp-image-587" /></p>
+<p>A correctly configured YMLP API should make your NSU configuration screen look somewhat like this.</p>
+<p><img src="http://dannyvankooten.com/wp-content/uploads/2011/07/newsletter-sign-up-ymlp-api.jpg" alt="" title="newsletter-sign-up-ymlp-api" width="595" height="215" class="aligncenter size-full wp-image-589" /></p>
+<h3 id="configuring-custom">Other Newsletter providers / custom settings</h3>
+<p>If you&#8217;re using iContact, Aweber, PHPList, ConstantContact or some other newsletter provider, correctly configuring Newsletter Sign Up will be somewhat harder but definitely  not impossible! </p>
+<p>To understand what we&#8217;re trying to do it is important that you understand how NSU works. All newsletter services provide you with a sign-up form in HTML which you can embed on your website. NSU mimics this sign-up request by sending a request to the specified action URL and sending some values along with the request, like the email address of the person who is trying to sign-up. </p>
+<p>So, let&#8217;s get into it. First, select &#8216;&#8211; other/ advanced&#8217; or your newsletter provider from the select box. You&#8217;ll see a few input fields which (for a minimum) ask for a <strong>form action</strong> and an <strong>email identifier</strong>. </p>
+<p>Head over to your mailinglist service and look for a sign-up form which you can embed. You can extract the form action and email identifier from this HTML snippet. Take a look at the following picture to get a better understanding of what values you need. I really hope this picture makes any sense&#8230;</p>
+<p><img src="http://dannyvankooten.com/wp-content/uploads/2011/07/newsletter-sign-up-extract-values.jpg" alt="" title="newsletter-sign-up-extract-values" width="758" height="241" class="aligncenter size-full wp-image-591" /></p>
+<p>Although the snippet in the above picture is overly simplified it should give you an idea of what to look for and which values you&#8217;ll need. Basically, all the input fields need to be covered so NSU can send those values along with the request to the form action whenever someone uses NSU to sign-up to your email list.</p>
+<h2 id="testing">Testing if Newsletter Sign-Up is properly configured</h2>
+<p>Testing to see if you&#8217;ve properly configured Newsletter Sign-up is pretty straightforward. Using the checkbox at you&#8217;re comment form that asks people if they&#8217;re willing to sign-up to your newsletter? Just leave a test comment, tick the checkbox and see if it the email adress you used gets added to your email list. </p>
+<p>One small note though. Make sure that you&#8217;re using an email address that is not already on your list since most newsletter services tend to ignore those requests. Also, be patient for at least a few minutes and check your spam folder!</p>
+<h4>Still not getting it? Try this.</h4>
+<ul>
+<li><a href="http://unwireme.com/boost-your-e-mail-newsletter-sign-up-conversion-rate-with-this-free-tip/">http://unwireme.com/boost-your-e-mail-newsletter-sign-up-conversion-rate-with-this-free-tip/</a></li>
+<li>Drop me a line trough the <a href="http://wordpress.org/tags/newsletter-sign-up?forum_id=10">support forums for NSU</a>, include your sign-up form and i&#8217;ll extract the values as soon as I find a spare minute!</li>
+</ul>
+<p><a href="http://dannyvankooten.com/571/configuring-newsletter-sign-up-the-definitive-guide/">Configuring Newsletter Sign-Up &#8211; the definitive guide</a></p><img src="http://feeds.feedburner.com/~r/dannyvankooten/~4/BVPQmc5tRZA" height="1" width="1"/>";}i:7;a:14:{s:5:"title";s:39:"Draggable image map with zoom in jQuery";s:4:"link";s:61:"http://feedproxy.google.com/~r/dannyvankooten/~3/f2FIVeQa5Do/";s:8:"comments";s:71:"http://dannyvankooten.com/548/draggable-image-map-zoom-jquery/#comments";s:7:"pubdate";s:31:"Sun, 26 Jun 2011 11:47:29 +0000";s:2:"dc";a:1:{s:7:"creator";s:16:"Danny van Kooten";}s:8:"category";s:22:"jQuerybrowser-gameMapz";s:4:"guid";s:32:"http://dannyvankooten.com/?p=548";s:11:"description";s:364:"<p>Let&#8217;s say you want to create some kind of &#8216;world map&#8217; thingy where you have an image inside a viewport so that most of your &#8216;map&#8217; overflows the viewport. You want the user to be able to drag around the...</p><p><a href="http://dannyvankooten.com/548/draggable-image-map-zoom-jquery/">Draggable image map with zoom in jQuery</a></p>";s:7:"content";a:1:{s:7:"encoded";s:5491:"<p>Let&#8217;s say you want to create some kind of &#8216;world map&#8217; thingy where you have an image inside a viewport so that most of your &#8216;map&#8217; overflows the viewport. You want the user to be able to drag around the image to view other area&#8217;s on the map and to zoom into different levels. Also, you want to use the html <em>&lt;map&gt;</em> tag to be able to link certain area&#8217;s on the map to certain pages on your website.</p>
+<p>This could all be done relatively easy by using the jQuery UI library, some basic HTML + CSS and <a href="http://docs.jquery.com/UI/API/1.8/Draggable">draggable()</a>. This will however lead to some problems.</p>
+<p>For example, when just invoking draggable on a map inside a viewport you will be able to drag the image out of the viewport. This isn&#8217;t what we want because a map has edges, and there is nothing but emptiness beyond those edges. This can be solved by using the &#8216;<em>containment</em>&#8216; option of draggable but we&#8217;ll have to create a constraint div. Wouldn&#8217;t it be easy if there was a plugin that took care of all this? Well, since last week there is. I&#8217;ve created a simple lightweight <a title="jQuery Plugins" href="http://dannyvankooten.com/jquery-plugins/">jQuery plugin</a> called <a title="Mapz" href="http://dannyvankooten.com/jquery-plugins/mapz/">Mapz</a> that takes care of this. </p>
+<p>You can specify different zoom levels, whether to use the mousewheel for zooming and it makes sure that your map cannot be dragged out of view.</p>
+<h3>Getting started: the HTML mark-up</h3>
+<p>Ok, let&#8217;s get going. Let&#8217;s create the HTML mark-up that is necessary to properly create our image map. In this example we&#8217;re going to create an image map with just 2 levels of zoom and a few linked area&#8217;s.</p>
+<p><strong>HTML</strong></p>
+<pre class="qoate-code">&lt;div class="map-viewport"&gt;
+	&lt;div id="map"&gt;
+		&lt;img src="img/map-1.jpg" width="1200" height="900" usemap="#html-map" class="current-level level" /&gt;
+		&lt;img src="img/map-2.jpg" width="1600" height="1200" class="level" /&gt;
+	&lt;/div&gt;
+	&lt;map name="html-map"&gt;
+		&lt;area shape="rect" coords="75,180,100,200" href="#" /&gt;
+		&lt;area shape="rect" coords="145,140,180,160" href="#" /&gt;
+	&lt;/map&gt;
+&lt;/div&gt;</pre>
+<p><strong>CSS</strong></p>
+<pre class="qoate-code">.map-viewport{ position:relative; width:300px; height:300px; overflow:hidden; }
+.level{ position:absolute; left:0; top:0; z-index:10;}
+.current-level{ z-index:20; }
+#map{ width:1200px; height:900px; position:absolute; left:0; top:0; cursor:move;}</pre>
+<p>As you can see, we&#8217;re only specifying an html &lt;map&gt; element for the first zoom level. Mapz will automatically create additional image maps for all zoom levels. Adding a zoom level is easy: just add an image with the &#8216;<em>level</em>&#8216; class to the <em>#maps</em> div.</p>
+<p>Now, when loading this page you&#8217;ll see your viewport with only the top-left corner of your image map visible. Let&#8217;s add some JavaScript to add the drag &#038; zoom functionality.</p>
+<h3>Loading Mapz.js</h3>
+<p>First, make sure you&#8217;ve loaded both the jQuery as the jQuery UI library. I like to use Google Libraries for this, which would make your head section look somewhat like this:</p>
+<pre class="qoate-code">
+&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="js/jquery.mousewheel.min.js" type="text/javascript" &gt;&lt;/script&gt;
+</pre>
+<p><small>(note: <a href="http://brandonaaron.net/code/mousewheel/docs">Mousewheel</a> is a jQuery plugin by Brandon Aaron which lets you bind events to usage of the mousewheel. We&#8217;ll need this if we want to be able to zoom in or out by using the mousewheel)</small></p>
+<p>After we&#8217;ve loaded jQuery, jQuery UI and Mousewheel (optionally) let&#8217;s load Mapz.js and invoke the mapz function on our image map.</p>
+<pre class="qoate-code">
+&lt;script src="js/jquery.mapz.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+$(document).ready(function() {
+	$("#map").mapz({
+		zoom : true,
+		createmaps : true,
+		mousewheel : true
+	});
+});
+&lt;/script&gt;
+</pre>
+<p>Actually, that&#8217;s all there is to it. We&#8217;ve specified some options, you can read more about these options on the <a href="http://dannyvankooten.com/jquery-plugins/mapz/">Mapz plugin</a> page. If you followed all the above steps and did things right you should now have a working image map with zooming functionality.</p>
+<p>Take a look at the demo which uses the exact code snippets as in this post. I&#8217;ve used some kind of fantasy world map for this example and added only two html area&#8217;s to it but you should get the idea. If not, drop me a line trough the <a href="#respond">comments</a>!</p>
+<ul>
+<li><a href="http://dannyvankooten.com/demo/draggable-image-map-with-zoom/">Demo: Draggable image map with zoom in jQuery</a></li>
+<li><a href="http://dannyvankooten.com/jquery-plugins/mapz/">Mapz plugin page</a></li>
+</ul>
+<p><a href="http://dannyvankooten.com/548/draggable-image-map-zoom-jquery/">Draggable image map with zoom in jQuery</a></p><img src="http://feeds.feedburner.com/~r/dannyvankooten/~4/f2FIVeQa5Do" height="1" width="1"/>";}s:3:"wfw";a:1:{s:10:"commentrss";s:67:"http://dannyvankooten.com/548/draggable-image-map-zoom-jquery/feed/";}s:5:"slash";a:1:{s:8:"comments";s:1:"4";}s:10:"feedburner";a:1:{s:8:"origlink";s:62:"http://dannyvankooten.com/548/draggable-image-map-zoom-jquery/";}s:7:"summary";s:364:"<p>Let&#8217;s say you want to create some kind of &#8216;world map&#8217; thingy where you have an image inside a viewport so that most of your &#8216;map&#8217; overflows the viewport. You want the user to be able to drag around the...</p><p><a href="http://dannyvankooten.com/548/draggable-image-map-zoom-jquery/">Draggable image map with zoom in jQuery</a></p>";s:12:"atom_content";s:5491:"<p>Let&#8217;s say you want to create some kind of &#8216;world map&#8217; thingy where you have an image inside a viewport so that most of your &#8216;map&#8217; overflows the viewport. You want the user to be able to drag around the image to view other area&#8217;s on the map and to zoom into different levels. Also, you want to use the html <em>&lt;map&gt;</em> tag to be able to link certain area&#8217;s on the map to certain pages on your website.</p>
+<p>This could all be done relatively easy by using the jQuery UI library, some basic HTML + CSS and <a href="http://docs.jquery.com/UI/API/1.8/Draggable">draggable()</a>. This will however lead to some problems.</p>
+<p>For example, when just invoking draggable on a map inside a viewport you will be able to drag the image out of the viewport. This isn&#8217;t what we want because a map has edges, and there is nothing but emptiness beyond those edges. This can be solved by using the &#8216;<em>containment</em>&#8216; option of draggable but we&#8217;ll have to create a constraint div. Wouldn&#8217;t it be easy if there was a plugin that took care of all this? Well, since last week there is. I&#8217;ve created a simple lightweight <a title="jQuery Plugins" href="http://dannyvankooten.com/jquery-plugins/">jQuery plugin</a> called <a title="Mapz" href="http://dannyvankooten.com/jquery-plugins/mapz/">Mapz</a> that takes care of this. </p>
+<p>You can specify different zoom levels, whether to use the mousewheel for zooming and it makes sure that your map cannot be dragged out of view.</p>
+<h3>Getting started: the HTML mark-up</h3>
+<p>Ok, let&#8217;s get going. Let&#8217;s create the HTML mark-up that is necessary to properly create our image map. In this example we&#8217;re going to create an image map with just 2 levels of zoom and a few linked area&#8217;s.</p>
+<p><strong>HTML</strong></p>
+<pre class="qoate-code">&lt;div class="map-viewport"&gt;
+	&lt;div id="map"&gt;
+		&lt;img src="img/map-1.jpg" width="1200" height="900" usemap="#html-map" class="current-level level" /&gt;
+		&lt;img src="img/map-2.jpg" width="1600" height="1200" class="level" /&gt;
+	&lt;/div&gt;
+	&lt;map name="html-map"&gt;
+		&lt;area shape="rect" coords="75,180,100,200" href="#" /&gt;
+		&lt;area shape="rect" coords="145,140,180,160" href="#" /&gt;
+	&lt;/map&gt;
+&lt;/div&gt;</pre>
+<p><strong>CSS</strong></p>
+<pre class="qoate-code">.map-viewport{ position:relative; width:300px; height:300px; overflow:hidden; }
+.level{ position:absolute; left:0; top:0; z-index:10;}
+.current-level{ z-index:20; }
+#map{ width:1200px; height:900px; position:absolute; left:0; top:0; cursor:move;}</pre>
+<p>As you can see, we&#8217;re only specifying an html &lt;map&gt; element for the first zoom level. Mapz will automatically create additional image maps for all zoom levels. Adding a zoom level is easy: just add an image with the &#8216;<em>level</em>&#8216; class to the <em>#maps</em> div.</p>
+<p>Now, when loading this page you&#8217;ll see your viewport with only the top-left corner of your image map visible. Let&#8217;s add some JavaScript to add the drag &#038; zoom functionality.</p>
+<h3>Loading Mapz.js</h3>
+<p>First, make sure you&#8217;ve loaded both the jQuery as the jQuery UI library. I like to use Google Libraries for this, which would make your head section look somewhat like this:</p>
+<pre class="qoate-code">
+&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="js/jquery.mousewheel.min.js" type="text/javascript" &gt;&lt;/script&gt;
+</pre>
+<p><small>(note: <a href="http://brandonaaron.net/code/mousewheel/docs">Mousewheel</a> is a jQuery plugin by Brandon Aaron which lets you bind events to usage of the mousewheel. We&#8217;ll need this if we want to be able to zoom in or out by using the mousewheel)</small></p>
+<p>After we&#8217;ve loaded jQuery, jQuery UI and Mousewheel (optionally) let&#8217;s load Mapz.js and invoke the mapz function on our image map.</p>
+<pre class="qoate-code">
+&lt;script src="js/jquery.mapz.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+$(document).ready(function() {
+	$("#map").mapz({
+		zoom : true,
+		createmaps : true,
+		mousewheel : true
+	});
+});
+&lt;/script&gt;
+</pre>
+<p>Actually, that&#8217;s all there is to it. We&#8217;ve specified some options, you can read more about these options on the <a href="http://dannyvankooten.com/jquery-plugins/mapz/">Mapz plugin</a> page. If you followed all the above steps and did things right you should now have a working image map with zooming functionality.</p>
+<p>Take a look at the demo which uses the exact code snippets as in this post. I&#8217;ve used some kind of fantasy world map for this example and added only two html area&#8217;s to it but you should get the idea. If not, drop me a line trough the <a href="#respond">comments</a>!</p>
+<ul>
+<li><a href="http://dannyvankooten.com/demo/draggable-image-map-with-zoom/">Demo: Draggable image map with zoom in jQuery</a></li>
+<li><a href="http://dannyvankooten.com/jquery-plugins/mapz/">Mapz plugin page</a></li>
+</ul>
+<p><a href="http://dannyvankooten.com/548/draggable-image-map-zoom-jquery/">Draggable image map with zoom in jQuery</a></p><img src="http://feeds.feedburner.com/~r/dannyvankooten/~4/f2FIVeQa5Do" height="1" width="1"/>";}i:8;a:14:{s:5:"title";s:36:"Dynamic custom menu’s in WordPress";s:4:"link";s:61:"http://feedproxy.google.com/~r/dannyvankooten/~3/k5hOScrzV6Q/";s:8:"comments";s:70:"http://dannyvankooten.com/516/dynamic-custom-menus-wordpress/#comments";s:7:"pubdate";s:31:"Sun, 19 Jun 2011 11:51:12 +0000";s:2:"dc";a:1:{s:7:"creator";s:16:"Danny van Kooten";}s:8:"category";s:20:"WordPresscustom menu";s:4:"guid";s:32:"http://dannyvankooten.com/?p=516";s:11:"description";s:367:"<p>Since WordPress 3.0 you can use custom menu&#8217;s in your themes, which is great because of how easy to use they are for you or (if you&#8217;re a developer) for your cliënts. You can register theme locations where menu&#8217;s can...</p><p><a href="http://dannyvankooten.com/516/dynamic-custom-menus-wordpress/">Dynamic custom menu&#8217;s in WordPress</a></p>";s:7:"content";a:1:{s:7:"encoded";s:4428:"<p>Since WordPress 3.0 you can use custom menu&#8217;s in your themes, which is great because of how easy to use they are for you or (if you&#8217;re a developer) for your cliënts. You can register theme locations where menu&#8217;s can be hooked to, which is particularly useful for site-wide menu&#8217;s like a header menu. But what if you need to hook a menu to a certain page/post or maybe even multiple posts? I&#8217;ve looked around a bit and found no plugin yet that took care of this, while the coding part would be pretty simple. That&#8217;s why i&#8217;m going to walk you trough the necessary steps to implement this in your theme. But first, let&#8217;s talk a bit about the different functions that came with custom menu&#8217;s and which we are going to need.</p>
+<p><strong><a href="http://codex.wordpress.org/Function_Reference/wp_nav_menu">wp_nav_menu()</a></strong> &#8211; This is the function that calls and echo&#8217;s the custom menu. You can specify many parameters but the ones we care about at the moment are &#8216;theme_location&#8217; and &#8216;menu&#8217;. &#8216;theme_location&#8217; calls the menu that is hooked to the given location, &#8216;menu&#8217; calls the menu by ID, slug or name.</p>
+<p><strong>is_nav_menu()</strong> &#8211; This function checks if a given menu exists, again accepts (matching in order) ID, slug or name.</p>
+<p>With these two functions we can check if a given menu exists and if it does call it, if not we can either do nothing, call a default menu or whatever you want to do when there&#8217;s no custom menu hooked to the current page.</p>
+<h2>Hooking a custom menu to a page or post</h2>
+<p>Like always, there are multiple ways to do this. We can look for <em>$_SERVER['REQUEST_URI']</em> and use that as our menu name, however this comes with a big downside: we are limited to 1 page per menu. We won&#8217;t be creating a dynamic custom menu for EVERY page or post so this is probably not what you want. What we want is to create a one-to-many relationship between a menu and certain pages or posts. What about adding a post_meta value that holds the menu id or slug, whichever is easiest?</p>
+<p><em>(<strong>Note:</strong> As of WordPress version 3.1, some screen options on the Post &amp; Page edit Administration Panels are hidden by default. Custom Fields are hidden by default if they have not been used before.)</em></p>
+<p><a href="http://dannyvankooten.com/wp-content/uploads/2011/06/custom-field-menu.jpg"><img class="aligncenter size-full wp-image-518" title="Custom field containting 'menu' meta value." src="http://dannyvankooten.com/wp-content/uploads/2011/06/custom-field-menu.jpg" alt="" width="518" height="151" /></a></p>
+<p>By specifying the menu slug as a custom field meta value we can call this from our template files from inside the loop by using <em><a href="http://codex.wordpress.org/Function_Reference/get_post_meta">get_post_meta()</a>.</em> Then we check if a custom menu with that slug exists, just to be sure. If it exists, output the menu using <em>wp_nav_menu()</em>. I&#8217;m not specifying a lot of parameters here, but of course you can just specify what&#8217;s needed inside the parameter array.</p>
+<pre class="qoate-code">
+
+$menu_slug = get_post_meta($post-&gt;ID,'menu',true); 
+
+if(is_nav_menu($menu_slug)) {
+	wp_nav_menu(array(
+		'menu' =&gt; $menu_slug
+	));
+} // optionally, add an else to output something when no menu exists with the given meta value.
+</pre>
+<p>So there we have it, we hooked a menu to a post. Using the above method you can of course re-use the same menu for different posts or pages. Now, if we wanted to make things easier we would get all created nav menu&#8217;s with <em><a href="http://core.trac.wordpress.org/browser/tags/3.1.3/wp-includes/nav-menu.php#l409">wp_get_nav_menus()</a></em> and add a select box beneath the post editor where a custom menu can be chosen but i&#8217;m not going to dive into that. </p>
+<p>In fact, I might create a <a href="http://dannyvankooten.com/wordpress-plugins/">WordPress plugin</a> that does just that if it turns out people are actually interesting in such a thing. Are you? Well, <a href="#respond">let me know then!</a></p>
+<p><a href="http://dannyvankooten.com/516/dynamic-custom-menus-wordpress/">Dynamic custom menu&#8217;s in WordPress</a></p><img src="http://feeds.feedburner.com/~r/dannyvankooten/~4/k5hOScrzV6Q" height="1" width="1"/>";}s:3:"wfw";a:1:{s:10:"commentrss";s:66:"http://dannyvankooten.com/516/dynamic-custom-menus-wordpress/feed/";}s:5:"slash";a:1:{s:8:"comments";s:1:"6";}s:10:"feedburner";a:1:{s:8:"origlink";s:61:"http://dannyvankooten.com/516/dynamic-custom-menus-wordpress/";}s:7:"summary";s:367:"<p>Since WordPress 3.0 you can use custom menu&#8217;s in your themes, which is great because of how easy to use they are for you or (if you&#8217;re a developer) for your cliënts. You can register theme locations where menu&#8217;s can...</p><p><a href="http://dannyvankooten.com/516/dynamic-custom-menus-wordpress/">Dynamic custom menu&#8217;s in WordPress</a></p>";s:12:"atom_content";s:4428:"<p>Since WordPress 3.0 you can use custom menu&#8217;s in your themes, which is great because of how easy to use they are for you or (if you&#8217;re a developer) for your cliënts. You can register theme locations where menu&#8217;s can be hooked to, which is particularly useful for site-wide menu&#8217;s like a header menu. But what if you need to hook a menu to a certain page/post or maybe even multiple posts? I&#8217;ve looked around a bit and found no plugin yet that took care of this, while the coding part would be pretty simple. That&#8217;s why i&#8217;m going to walk you trough the necessary steps to implement this in your theme. But first, let&#8217;s talk a bit about the different functions that came with custom menu&#8217;s and which we are going to need.</p>
+<p><strong><a href="http://codex.wordpress.org/Function_Reference/wp_nav_menu">wp_nav_menu()</a></strong> &#8211; This is the function that calls and echo&#8217;s the custom menu. You can specify many parameters but the ones we care about at the moment are &#8216;theme_location&#8217; and &#8216;menu&#8217;. &#8216;theme_location&#8217; calls the menu that is hooked to the given location, &#8216;menu&#8217; calls the menu by ID, slug or name.</p>
+<p><strong>is_nav_menu()</strong> &#8211; This function checks if a given menu exists, again accepts (matching in order) ID, slug or name.</p>
+<p>With these two functions we can check if a given menu exists and if it does call it, if not we can either do nothing, call a default menu or whatever you want to do when there&#8217;s no custom menu hooked to the current page.</p>
+<h2>Hooking a custom menu to a page or post</h2>
+<p>Like always, there are multiple ways to do this. We can look for <em>$_SERVER['REQUEST_URI']</em> and use that as our menu name, however this comes with a big downside: we are limited to 1 page per menu. We won&#8217;t be creating a dynamic custom menu for EVERY page or post so this is probably not what you want. What we want is to create a one-to-many relationship between a menu and certain pages or posts. What about adding a post_meta value that holds the menu id or slug, whichever is easiest?</p>
+<p><em>(<strong>Note:</strong> As of WordPress version 3.1, some screen options on the Post &amp; Page edit Administration Panels are hidden by default. Custom Fields are hidden by default if they have not been used before.)</em></p>
+<p><a href="http://dannyvankooten.com/wp-content/uploads/2011/06/custom-field-menu.jpg"><img class="aligncenter size-full wp-image-518" title="Custom field containting 'menu' meta value." src="http://dannyvankooten.com/wp-content/uploads/2011/06/custom-field-menu.jpg" alt="" width="518" height="151" /></a></p>
+<p>By specifying the menu slug as a custom field meta value we can call this from our template files from inside the loop by using <em><a href="http://codex.wordpress.org/Function_Reference/get_post_meta">get_post_meta()</a>.</em> Then we check if a custom menu with that slug exists, just to be sure. If it exists, output the menu using <em>wp_nav_menu()</em>. I&#8217;m not specifying a lot of parameters here, but of course you can just specify what&#8217;s needed inside the parameter array.</p>
+<pre class="qoate-code">
+
+$menu_slug = get_post_meta($post-&gt;ID,'menu',true); 
+
+if(is_nav_menu($menu_slug)) {
+	wp_nav_menu(array(
+		'menu' =&gt; $menu_slug
+	));
+} // optionally, add an else to output something when no menu exists with the given meta value.
+</pre>
+<p>So there we have it, we hooked a menu to a post. Using the above method you can of course re-use the same menu for different posts or pages. Now, if we wanted to make things easier we would get all created nav menu&#8217;s with <em><a href="http://core.trac.wordpress.org/browser/tags/3.1.3/wp-includes/nav-menu.php#l409">wp_get_nav_menus()</a></em> and add a select box beneath the post editor where a custom menu can be chosen but i&#8217;m not going to dive into that. </p>
+<p>In fact, I might create a <a href="http://dannyvankooten.com/wordpress-plugins/">WordPress plugin</a> that does just that if it turns out people are actually interesting in such a thing. Are you? Well, <a href="#respond">let me know then!</a></p>
+<p><a href="http://dannyvankooten.com/516/dynamic-custom-menus-wordpress/">Dynamic custom menu&#8217;s in WordPress</a></p><img src="http://feeds.feedburner.com/~r/dannyvankooten/~4/k5hOScrzV6Q" height="1" width="1"/>";}i:9;a:14:{s:5:"title";s:56:"Preserve inline JavaScript or HTML in the WP post editor";s:4:"link";s:61:"http://feedproxy.google.com/~r/dannyvankooten/~3/Ag3LibFayU0/";s:8:"comments";s:77:"http://dannyvankooten.com/491/preserve-javascript-in-wp-post-editor/#comments";s:7:"pubdate";s:31:"Tue, 14 Jun 2011 18:57:17 +0000";s:2:"dc";a:1:{s:7:"creator";s:16:"Danny van Kooten";}s:8:"category";s:23:"WordPresstinymcewysiwyg";s:4:"guid";s:32:"http://dannyvankooten.com/?p=491";s:11:"description";s:422:"<p>By default WordPress&#8217; WYSIWYG editor will encode all HTML entities inside your post&#8217;s content and convert double line breaks to paragraphs. This normally means that all manually inserted HTML or JavaScript will break and if it doesn&#8217;t, it will when...</p><p><a href="http://dannyvankooten.com/491/preserve-javascript-in-wp-post-editor/">Preserve inline JavaScript or HTML in the WP post editor</a></p>";s:7:"content";a:1:{s:7:"encoded";s:3398:"<p>By default WordPress&#8217; WYSIWYG editor will encode all HTML entities inside your post&#8217;s content and convert double line breaks to paragraphs. This normally means that all manually inserted HTML or JavaScript will break and if it doesn&#8217;t, it will when you switch between the &#8216;visual&#8217; and &#8216;html&#8217; editor in TinyMCE. Luckily, there is a small trick you can do to preserve certain parts of your post&#8217;s content just as it is.</p>
+<p>By adding a small hack to your theme&#8217;s <em>functions.php</em> file we can only call <em>wptexturize()</em> en <em>wpautop()</em> on certain parts of the content. Since there is no way to disable the TinyMCE encoding that happens when switching between &#8216;Visual&#8217; and &#8216;HTML&#8217; mode we need to decode the encoded HTML. Let&#8217;s say we want to add some inline JavaScript to our post. Since we need to recognize what part of the content needs to be preserved let&#8217;s wrap our inline JavaScript with a shortcode.</p>
+<pre class="qoate-code">
+
+... post content ...
+
+[preserve]
+
+&lt;script type="text/javascript"&gt;
+
+var welcome_string = "Hello. We don't want this snippet to get messed up by wpautop() and wptexturize()";
+
+alert(welcome_string);
+
+&lt;/script&gt;
+
+[/preserve]
+
+... some more content...
+</pre>
+<p>Now, inside our theme&#8217;s functions.php we&#8217;re going to remove <em>wpautop()</em> and <em>wptexturize()</em> from <em>the_content</em> filter and add a function of our own to the filter. This function will only call wptexturize() and wpautop() on the parts of the content that are not wrapped in our [preserve] shortcode. Most parts of this snippet come from &#8220;<a href="http://css-tricks.com/snippets/wordpress/disable-automatic-formatting-using-a-shortcode/">disable automatic formatting using a shortcode</a>&#8220;, the only thing that has been added is the HTML decoding to revert the encoding that has been done by TinyMCE when switching modes.</p>
+<pre class="qoate-code">
+function my_preserve_function($content) {
+	$new_content = '';
+	$pattern_full = '{(\[preserve\].*?\[/preserve\])}is';
+	$pattern_contents = '{\[preserve\](.*?)\[/preserve\]}is';
+	$pieces = preg_split($pattern_full, $content, -1, PREG_SPLIT_DELIM_CAPTURE);
+
+	foreach ($pieces as $piece) {
+		if (preg_match($pattern_contents, $piece, $matches)) {
+			$new_content .= html_entity_decode($matches[1]);
+		} else {
+			$new_content .= wptexturize(wpautop($piece));
+		}
+	}
+
+	return $new_content;
+}
+
+remove_filter('the_content', 'wpautop');
+remove_filter('the_content', 'wptexturize');
+
+add_filter('the_content', 'my_preserve_function', 99);
+</pre>
+<p>With this snippet inside your functions.php you&#8217;ll see that you can effectively insert inline JavaScript or HTML as long as you wrap it in <em>[preserve]</em> and <em>[/preserve]</em>. When switching between Visual and HTML mode TinyMCE will still encode HTML entities but you can just ignore that cause upon generating the content everything will be decoded so that tags etc. will work just fine.</p>
+<p>Got a better idea on how to enable inline JavaScript in your posts? Leave it in the comments!</p>
+<p><a href="http://dannyvankooten.com/491/preserve-javascript-in-wp-post-editor/">Preserve inline JavaScript or HTML in the WP post editor</a></p><img src="http://feeds.feedburner.com/~r/dannyvankooten/~4/Ag3LibFayU0" height="1" width="1"/>";}s:3:"wfw";a:1:{s:10:"commentrss";s:73:"http://dannyvankooten.com/491/preserve-javascript-in-wp-post-editor/feed/";}s:5:"slash";a:1:{s:8:"comments";s:1:"9";}s:10:"feedburner";a:1:{s:8:"origlink";s:68:"http://dannyvankooten.com/491/preserve-javascript-in-wp-post-editor/";}s:7:"summary";s:422:"<p>By default WordPress&#8217; WYSIWYG editor will encode all HTML entities inside your post&#8217;s content and convert double line breaks to paragraphs. This normally means that all manually inserted HTML or JavaScript will break and if it doesn&#8217;t, it will when...</p><p><a href="http://dannyvankooten.com/491/preserve-javascript-in-wp-post-editor/">Preserve inline JavaScript or HTML in the WP post editor</a></p>";s:12:"atom_content";s:3398:"<p>By default WordPress&#8217; WYSIWYG editor will encode all HTML entities inside your post&#8217;s content and convert double line breaks to paragraphs. This normally means that all manually inserted HTML or JavaScript will break and if it doesn&#8217;t, it will when you switch between the &#8216;visual&#8217; and &#8216;html&#8217; editor in TinyMCE. Luckily, there is a small trick you can do to preserve certain parts of your post&#8217;s content just as it is.</p>
+<p>By adding a small hack to your theme&#8217;s <em>functions.php</em> file we can only call <em>wptexturize()</em> en <em>wpautop()</em> on certain parts of the content. Since there is no way to disable the TinyMCE encoding that happens when switching between &#8216;Visual&#8217; and &#8216;HTML&#8217; mode we need to decode the encoded HTML. Let&#8217;s say we want to add some inline JavaScript to our post. Since we need to recognize what part of the content needs to be preserved let&#8217;s wrap our inline JavaScript with a shortcode.</p>
+<pre class="qoate-code">
+
+... post content ...
+
+[preserve]
+
+&lt;script type="text/javascript"&gt;
+
+var welcome_string = "Hello. We don't want this snippet to get messed up by wpautop() and wptexturize()";
+
+alert(welcome_string);
+
+&lt;/script&gt;
+
+[/preserve]
+
+... some more content...
+</pre>
+<p>Now, inside our theme&#8217;s functions.php we&#8217;re going to remove <em>wpautop()</em> and <em>wptexturize()</em> from <em>the_content</em> filter and add a function of our own to the filter. This function will only call wptexturize() and wpautop() on the parts of the content that are not wrapped in our [preserve] shortcode. Most parts of this snippet come from &#8220;<a href="http://css-tricks.com/snippets/wordpress/disable-automatic-formatting-using-a-shortcode/">disable automatic formatting using a shortcode</a>&#8220;, the only thing that has been added is the HTML decoding to revert the encoding that has been done by TinyMCE when switching modes.</p>
+<pre class="qoate-code">
+function my_preserve_function($content) {
+	$new_content = '';
+	$pattern_full = '{(\[preserve\].*?\[/preserve\])}is';
+	$pattern_contents = '{\[preserve\](.*?)\[/preserve\]}is';
+	$pieces = preg_split($pattern_full, $content, -1, PREG_SPLIT_DELIM_CAPTURE);
+
+	foreach ($pieces as $piece) {
+		if (preg_match($pattern_contents, $piece, $matches)) {
+			$new_content .= html_entity_decode($matches[1]);
+		} else {
+			$new_content .= wptexturize(wpautop($piece));
+		}
+	}
+
+	return $new_content;
+}
+
+remove_filter('the_content', 'wpautop');
+remove_filter('the_content', 'wptexturize');
+
+add_filter('the_content', 'my_preserve_function', 99);
+</pre>
+<p>With this snippet inside your functions.php you&#8217;ll see that you can effectively insert inline JavaScript or HTML as long as you wrap it in <em>[preserve]</em> and <em>[/preserve]</em>. When switching between Visual and HTML mode TinyMCE will still encode HTML entities but you can just ignore that cause upon generating the content everything will be decoded so that tags etc. will work just fine.</p>
+<p>Got a better idea on how to enable inline JavaScript in your posts? Leave it in the comments!</p>
+<p><a href="http://dannyvankooten.com/491/preserve-javascript-in-wp-post-editor/">Preserve inline JavaScript or HTML in the WP post editor</a></p><img src="http://feeds.feedburner.com/~r/dannyvankooten/~4/Ag3LibFayU0" height="1" width="1"/>";}}s:7:"channel";a:9:{s:5:"title";s:16:"Danny van Kooten";s:4:"link";s:25:"http://dannyvankooten.com";s:11:"description";s:54:"WordPress plugins, PHP blog, jQuery scripts and more..";s:13:"lastbuilddate";s:31:"Wed, 30 Nov 2011 22:04:10 +0000";s:8:"language";s:2:"en";s:2:"sy";a:2:{s:12:"updateperiod";s:6:"hourly";s:15:"updatefrequency";s:1:"1";}s:9:"generator";s:29:"http://wordpress.org/?v=3.3.1";s:10:"feedburner";a:2:{s:9:"feedflare";s:391:"Subscribe with My Yahoo!Subscribe with NewsGatorSubscribe with My AOLSubscribe with BloglinesSubscribe with NetvibesSubscribe with GoogleSubscribe with PageflakesSubscribe with PlusmoSubscribe with The Free DictionarySubscribe with Bitty BrowserSubscribe with Live.comSubscribe with Excite MIXSubscribe with WebwagSubscribe with Podcast ReadySubscribe with WikioSubscribe with Daily Rotation";s:15:"browserfriendly";s:135:"Want to stay updated on the latest posts on DannyvanKooten.com? Subscribe to my RSS feed with your feedreader app of choice, right now!";}s:7:"tagline";s:54:"WordPress plugins, PHP blog, jQuery scripts and more..";}s:9:"textinput";a:0:{}s:5:"image";a:0:{}s:9:"feed_type";s:3:"RSS";s:12:"feed_version";s:3:"2.0";s:5:"stack";a:0:{}s:9:"inchannel";b:0;s:6:"initem";b:0;s:9:"incontent";b:0;s:11:"intextinput";b:0;s:7:"inimage";b:0;s:13:"current_field";s:0:"";s:17:"current_namespace";b:0;s:19:"_CONTENT_CONSTRUCTS";a:6:{i:0;s:7:"content";i:1;s:7:"summary";i:2;s:4:"info";i:3;s:5:"title";i:4;s:7:"tagline";i:5;s:9:"copyright";}s:4:"etag";s:27:"Onng2Z0J9Mh881W4jo30THcGQ8Y";s:13:"last_modified";s:29:"Sat, 25 Feb 2012 04:25:32 GMT";}

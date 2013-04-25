@@ -1,0 +1,70 @@
+/* BASIC STYLE */
+body {
+   /*background:#ffffff url(../images/bg-splash.jpg) 50% 0 no-repeat;*/
+   background:#ffffff;
+   color:#000000;
+   font: 62.5% Arial, sans-serif;
+   text-align: left;
+}
+
+#header {
+	height:85px;
+	margin:0 auto;
+	position:relative;
+	width:970px;
+}
+
+/* centers content */
+#transwrap {
+	background: url(../images/transparent.png);
+	padding: 20px;
+	width: 930px;
+	margin: 0 auto;
+	
+	-moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -khtml-border-radius: 50px;
+    border-radius: 50px;
+    behavior: url(/css/border-radius.htc);
+
+}
+#wrap {
+	/*background:url(../images/bg-wrap.png) 0 0 no-repeat;*/
+	background: #fff;
+	margin:0 auto;
+	-moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -khtml-border-radius: 50px;
+    border-radius: 50px;
+    behavior: url(/css/border-radius.htc);
+}
+
+#columns {
+	padding: 20px;
+	position: relative;
+	min-height: 900px;
+}
+
+#content {
+	padding: 0 20px 0 0;
+	margin-right: 122px;
+}
+
+#sidebar {
+	position: absolute;
+	top: 20px;
+	right: 10px;
+	height:740px;
+	padding:0 0 0 15px;
+	width:124px;
+}
+
+#footer {
+	color:#ffffff;
+	font-size:11px;
+	height:23px;
+	margin:0 auto;
+	padding:10px 27px 0 0;
+	text-align:right;
+	width:963px;
+}

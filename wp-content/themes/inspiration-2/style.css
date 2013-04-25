@@ -1,0 +1,13 @@
+/*   
+Theme Name: Inspiration
+Theme URI: http://www.inspirationfurniture.ca
+Description: A template for the Inspiration Furniture WordPress website
+Author: Digicoyote
+Author URI: http://www.digicoyote.com
+Version: 1.0
+*/
+@import url('css/reset.css');
+@import url('css/styles.css');
+@import url('css/layout.css');
+@import url('css/content.css?6');
+@import url('css/supersized.core.css');

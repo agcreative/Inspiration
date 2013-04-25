@@ -1,0 +1,80 @@
+.inline { display: inline; }
+.left { float: left; display: inline;}
+.right { float: right; display: inline;}
+.none { float: none; }
+.center { text-align: center; }
+.normal { font-weight: normal; }
+.nomargin { margin: 0; }
+.nopadding{padding:0;}
+.nomarpad {padding:0;margin:0;}
+.hide { display: none; }
+.aligncenter { display:block; margin:0 auto; }
+.alignleft { display:inline; float:left; margin:0 10px 10px 0; }
+.alignright { display:inline; float:right; margin:0 0 10px 10px; }
+.clearboth { clear: both; display: block; }
+.clearfix:after {
+   content: "."; 
+   display: block; 
+   height: 0; 
+   clear: both; 
+   visibility: hidden;
+}
+.clearfix {display: inline-block;}
+/* Hides from IE-mac \*/
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+/* End hide from IE-mac */
+.clear {
+    clear: both;
+    font-size: 1px;
+    height: 0px;    
+}
+
+
+/*
+------------------------------------------------------
+FONT STYLES
+------------------------------------------------------
+*/
+.bold, strong { font-weight: bold; }
+em { font-style: italic; }
+.small { font-size: 1em; }
+sup { font-size: 1em; }
+/*
+------------------------------------------------------
+LIST STYLES
+------------------------------------------------------
+*/
+ul {}
+ol {}
+ul li, ol li { }
+ul.no-bullets { list-style: none; }
+/*
+------------------------------------------------------
+LINK STYLES
+------------------------------------------------------
+*/
+a {
+   color:#11a462;
+   text-decoration: none;
+}
+a:hover { 
+   text-decoration: underline;
+}
+
+/*
+------------------------------------------------------
+HEADERS STYLES, CONTENT STYLES
+------------------------------------------------------
+*/
+p {
+    color: #231f20;
+    line-height: 130%;
+}
+
+p#breadcrumbs {padding-left: 45px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: #231f20;
+}

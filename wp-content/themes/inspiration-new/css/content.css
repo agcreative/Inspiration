@@ -1,0 +1,869 @@
+/* Header | div#header */
+div#header a#logo {
+	cursor:pointer;
+	display:block;
+	height:85px;
+	width:340px;
+	float: right;
+}
+
+div#header ul {
+	float: right;
+	height: 85px;
+	line-height: 85px;
+	margin-right: 10px;
+}
+
+div#header ul li {
+	display:block;
+	float:left;
+	height:13px;
+	margin:0;
+
+}
+
+div#header ul li:first-child {
+	border-left:0 none !important;
+}
+
+div#header ul li a {
+	color:#000000;
+	font-size:12px;
+	color: #ffffff;
+	height:13px;
+	line-height:13px;
+	text-transform:lowercase;
+	border-left: 1px solid #fff;
+	padding:0 5px;
+}
+
+/* Masthead | div.masthead */
+#content div#masthead {
+	height:308px;
+	margin:47px 0 0 0;
+	overflow:hidden;
+	width:810px;
+}
+
+#content div#masthead div#set_1 {
+	background:url(../polaroids/polaroid-set-1-photo-1.jpg) 0 0 no-repeat;
+	float:left;
+	height:308px;
+	width:183px;
+}
+
+#content div#masthead div#set_2 {
+	background:url(../polaroids/polaroid-set-2-photo-1.jpg) 0 0 no-repeat;
+	float:left;
+	height:308px;
+	width:145px;
+}
+
+#content div#masthead div#set_3 {
+	background:url(../polaroids/polaroid-set-3-photo-1.jpg) 0 0 no-repeat;
+	float:left;
+	height:308px;
+	width:167px;
+}
+
+#content div#masthead div#set_4 {
+	background:url(../polaroids/polaroid-set-4-photo-1.jpg) 0 0 no-repeat;
+	float:left;
+	height:308px;
+	width:154px;
+}
+
+#content div#masthead div#set_5 {
+	background:url(../polaroids/polaroid-set-5-photo-1.jpg) 0 0 no-repeat;
+	float:left;
+	height:308px;
+	width:161px;
+}
+
+#content div#masthead div {
+	position:relative;
+}
+
+#content div#masthead div img {
+	left:0;
+	position:absolute;
+	top:0;
+	z-index:1;
+}
+
+/* Splash Boxes | div.box-left, div.box-right */
+body.splash #content .box {
+	position:relative;
+}
+
+#content .box-left {
+	border-right:1px solid #abacad;
+	float:left;
+	height:400px;
+	overflow:hidden;
+	padding:0 0 0 34px;
+	width:393px;
+}
+
+#content .box-left img {
+	bottom:0;
+	left:34px;
+	position:absolute;
+}
+
+#content .box-right {
+	float:left;
+	height:400px;
+	overflow:hidden;
+	padding:0 0 0 10px;
+	width:372px;
+}
+
+#content .box-right img {
+	margin:0 0 0 0;
+}
+
+body.splash div.box h2 {
+	color:#231f20;
+	font-size:17px;
+	font-weight:bold;
+	margin:0 0 10px 0;
+	text-transform:uppercase;
+}
+
+body.splash div.box h2 a {
+	font-size:13px;
+	font-weight:normal;
+	text-transform:lowercase;
+}
+
+body.splash div.box p {
+	font-size:13px;
+}
+
+/* View All content | body.viewall div#content */
+body.products div#content {
+	height:700px;
+	left:150px;
+	position:absolute;
+	top:45px;
+	width:645px;
+	z-index:5;
+}
+
+/*body.products div#content a.imgBox {
+	display:block;
+	float:left;
+	height:135px;
+	line-height:135px;
+	width:215px;
+	background:purple;
+}
+
+body.products div#content a img {
+	vertical-align:middle;
+}*/
+
+body.products div#content a.imgBox {
+	height:135px;
+	width:215px;
+}
+body.product div#products {
+	clear: both;
+}
+
+
+body.product div#content h3 {
+	color:#231f20;
+	font-family:"Franklin Gothic Medium", sans-serif;
+	font-size:24px;
+	font-weight:bold;
+	text-align:right;
+	-webkit-text-size-adjust: none;
+}
+
+
+body.product div#content h1.title {
+	color:#231f20;
+	font-family:"Franklin Gothic Medium", sans-serif;
+	font-size:24px;
+	font-weight:bold;
+	text-align:right;
+	-webkit-text-size-adjust: none;
+}
+
+
+
+body.product div#content h4 {
+	color:#231f20;
+	font-family:"Franklin Gothic Medium", sans-serif;
+	font-size:18px;
+	font-weight:bold;
+	text-align:right;
+	-webkit-text-size-adjust: none;
+}
+
+body.product div#content h5 {
+	color:#6d6e71;
+	font-family:"Franklin Gothic Book", sans-serif;
+	font-size:14px;
+	font-weight:bold;
+	margin:15px 0 0 0;
+	text-align:right;
+	-webkit-text-size-adjust: none;
+}
+
+body.product div#content ul li,
+body.product div#content p {
+	color:#6d6e71;
+	font-family:"Franklin Gothic Book", sans-serif;
+	font-size:14px;
+	font-weight:normal;
+	list-style-type:dash;
+	margin:10px 0;body.product div#content ul li, body.product div#content p
+	-webkit-text-size-adjust: none;
+}
+
+body.product div#content div#mainProductImg {
+	min-height:360px;
+	height: auto;
+	position:relative;
+	width:100%;
+}
+
+body.product div#content div#mainProductImg img {
+	display:none;
+	position:absolute;
+	left:0;
+	top:0;
+}
+
+/* View All sidebar | body.products div#left_sidebar */
+body.product h2,
+body.products h2 {
+	color:#009d57;
+	font-size:25px;
+	font-weight:bold;
+	height:31px;
+	top:33px;
+	text-transform:uppercase;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+body.product h1, 
+body.products h1 {
+	color:#000000;
+	font-size:20px;
+	font-weight:normal;
+	height:24px;
+	text-transform:lowercase;
+}
+
+body.product h2.subcat, body.products h2.subcat {
+color: #000000;
+font-size: 20px;
+font-weight: normal;
+height: 24px;
+text-transform: lowercase;
+}
+
+
+
+body.product div#left_sidebar,
+body.products div#left_sidebar {
+	left:27px;
+	position:absolute;
+	top:94px;
+	width:135px;
+	z-index:10;
+}
+
+/* taxonomy-specific style */
+/*body.ft-complements h1 { font-size:17px; }/*
+/*body.ft-complements h2 { top:52px; }*/
+/*body.ft-complements div#left_sidebar { top:92px; }*/
+
+body.ft-audio-video-storage h2 { font-size:12px;font-weight:bold; }
+
+body.product div#left_sidebar h2,
+body.products div#left_sidebar h2 {
+	color:#000000;
+	font-size:20px;
+	font-weight:normal;
+	margin:0 0 17px 0;
+	text-transform:lowercase;
+}
+
+body.product div#left_sidebar ul,
+body.products div#left_sidebar ul {
+	margin:0 0 17px 0;
+}
+
+body.product div#left_sidebar ul li a,
+body.products div#left_sidebar ul li a {
+	color:#6d6e71;
+	font-family:"Franklin Gothic Book", "Franklin Gothic Medium", sans-serif;
+	font-size:11px;
+	text-transform:lowercase;
+}
+
+body.product div#left_sidebar ul li.current-page-item a,
+body.products div#left_sidebar ul li.current-page-item a {
+	color:#009d57;
+}
+
+body.product div#left_sidebar p,
+body.products div#left_sidebar p {
+	color:#6d6e71;
+	font-family:"Franklin Gothic Book", "Franklin Gothic Medium", sans-serif;
+	font-size:13px;
+}
+
+body.product div#left_sidebar p,
+body.products div#left_sidebar p {
+	color:#009d57;
+}
+
+/* Product thumbnails | body.product ul#thumbnails */
+body.product ul#thumbnails {
+	height:100px;
+	width:100%;
+}
+
+body.product ul#thumbnails li {
+	display:block;
+	float:left;
+	height:90px;
+	margin:0 10px 0 0;
+	text-align:center;
+	width:130px;
+}
+
+body.product ul#thumbnails li a {
+	color:#231f20;
+	font-family:"Franklin Gothic Book", "Franklin Gothic Medium", sans-serif;
+}
+
+body.product ul#thumbnails li a:hover {
+	text-decoration:none;
+}
+
+/* View All pagination | body.products ul#pagination */
+body.products #pagination, 
+body.products ul#pagination {
+	bottom:0;
+	height:35px;
+	left:150px;
+	position:absolute;
+	width:645px;
+	z-index:10;
+	text-align:right;
+}
+
+body.products #pagination_brand, 
+body.products ul#pagination_brand {
+	bottom:0;
+	height:125px;
+	left:150px;
+	position:absolute;
+	width:645px;
+	z-index:10;
+	text-align:right;
+}
+
+body.products #pagination a,
+body.products #pagination span {
+	border-left:1px solid #000000;
+	color:#000000;
+	display:inline;
+	padding:0 4px;
+}
+
+body.products #pagination_brand a,
+body.products #pagination_brand span {
+	border-left:1px solid #000000;
+	color:#000000;
+	display:inline;
+	padding:0 4px;
+}
+body.products #pagination_brand span {
+	color:#009d57 !important;
+}
+
+body.products #pagination_brand :first-child {
+	border-left:0 none !important;
+}
+
+body.products ul#pagination_brand li {
+	border-left:1px solid #000000;
+	display:inline;
+}
+
+body.products ul#pagination_brand li:first-child {
+	border-left:0 none !important;
+}
+
+body.products ul#pagination_brand li a {
+	color:#000000;
+	padding:0 4px;
+}
+
+body.products ul#pagination_brand li.current-page-item a {
+	color:#009d57;
+}
+
+body.products #pagination span {
+	color:#009d57 !important;
+}
+
+body.products #pagination :first-child {
+	border-left:0 none !important;
+}
+
+body.products ul#pagination li {
+	border-left:1px solid #000000;
+	display:inline;
+}
+
+body.products ul#pagination li:first-child {
+	border-left:0 none !important;
+}
+
+body.products ul#pagination li a {
+	color:#000000;
+	padding:0 4px;
+}
+
+body.products ul#pagination li.current-page-item a {
+	color:#009d57;
+}
+
+/* Page content | body.page div#content */
+
+
+body.page div#content h1 {
+	color:#009d57;
+	font-size:26px;
+	font-weight:bold;
+	margin:0 0 20px 0;
+	text-transform:uppercase;
+}
+
+body.page div#content h2,
+body.page div#content h3,
+body.page div#content h4,
+body.page div#content h5,
+body.page div#content h6 {
+	color:#009d57;
+	font-size:14px;
+	font-weight:bold;
+	float: none;
+}
+
+div#content p {
+	color:#535454;
+	font-size:13px;
+	margin:0 0 15px 0;
+}
+
+body.single p {
+	text-align: right;
+}
+
+body.single h2, body.archive h2 {
+	float: left;
+}
+body.category-trending-topic {
+	float: none;
+}
+
+#map { width: 100% !important; }
+
+body.page div#content span.green {
+	color:#009d57;
+	font-weight:bold;
+	font-style:italic;
+}
+
+body.page div#content ul,
+body.page div#content ol {
+	margin:0 20px 15px 20px;
+}
+
+body.page div#content ul li {
+	color:#535454;
+	font-size:13px;
+	list-style-type:disc;
+	margin:0 0 5px 0;
+}
+
+body.page div#content ol li {
+	color:#535454;
+	font-size:13px;
+	list-style-type:decimal;
+	margin:0 0 5px 0;
+}
+
+body.page div#content #map_canvas {
+	
+}
+
+/* Brand Taxonomy gallery overrides */
+body.term-natuzzi h1 {
+	background:url(../images/h1-brand-natuzzi.png) 0 0 no-repeat;
+	font-size:1px;
+	height:27px;
+	text-indent:-9999px;
+	width:166px;
+}
+
+body.term-italsofa h1 {
+	background:url(../images/h1-brand-italsofa.png) 0 0 no-repeat;
+	font-size:1px;
+	height:61px;
+	text-indent:-9999px;
+	width:88px;
+}
+
+body.term-italsofa #left_sidebar {
+	top:124px !important;
+}
+
+body.term-stressless h1 {
+	background:url(../images/h1-brand-stressless.png) 0 0 no-repeat;
+	font-size:1px;
+	height:60px;
+	text-indent:-9999px;
+	width:79px;
+}
+
+body.term-stressless #left_sidebar {
+	top:123px !important;
+}
+
+/* Sidebar | div#sidebar */
+#sidebar .category {
+	margin:0 0 10px 0;
+}
+
+#sidebar h3 {
+	color:#009d57;
+	font-size:14px;
+	font-weight:bold;
+	margin:0 0 4px 0;
+	text-transform:uppercase;
+}
+
+#sidebar ul li a {
+	color:#000000;
+	font-size:13px;
+}
+
+#sidebar .galleries ul li a {
+	text-transform:uppercase;
+}
+
+#sidebar .info {}
+
+#sidebar .info #phone_number {
+	background:url(../images/inspiration-furniture-phone.jpg) 0 0 no-repeat;
+	height:16px;
+	margin:0 0 12px 0;
+	text-indent:-9999px;
+	width:104px;
+}
+
+#sidebar .info .social-media {
+	clear:both;
+	height:25px;
+	margin:0 0 20px 0;
+}
+
+#sidebar .info #twitter {
+	background:url(../images/twitter.png) 0 0 no-repeat;
+	cursor:pointer;
+	display:block;
+	float:left;
+	height:25px;
+	margin:0 4px 0 0;
+	text-indent:-9999px;
+	width:25px;
+}
+
+#sidebar .info #facebook{
+	background:url(../images/facebook.png) 0 0 no-repeat;
+	cursor:pointer;
+	display:block;
+	float:left;
+	height:25px;
+	margin:0 4px 0 0;
+	text-indent:-9999px;
+	width:25px;
+}
+
+#sidebar .info #yelp{
+	background:url(../images/yelp.png) 0 0 no-repeat;
+	cursor:pointer;
+	display:block;
+	float:left;
+	height:25px;
+	margin:0 4px 0 0;
+	text-indent:-9999px;
+	width:25px;
+}
+
+#sidebar .info ul {
+	clear:both;
+}
+
+#sidebar .info ul li {
+	margin:0 0 4px 0;
+}
+
+#sidebar .info ul li a{
+	color:#009d57;
+	font-size:14px;
+	font-weight:bold;
+	margin:0 0 4px 0;
+	text-transform:uppercase;
+}
+
+#brand-banner {
+    margin: 43px 62px;
+    width: 521px;
+    height: 64px;
+    position: relative; 
+}
+
+
+
+
+.slider {
+}
+
+.slider p {
+ padding: 0 !important;
+  margin: 0 0 1em 0 !important;
+  color: #000 !important;
+}
+
+.slider .FA_article p a {
+	color: #009D57 !important;
+}
+
+.slider .FA_wrap {
+ padding: 0 !important;
+  margin: 0 !important;
+}
+
+.slider .FA_overall_container_classic {
+ border: none !important;
+  background: none !important
+}
+
+.slider h2 {
+background: none !important;	
+}
+
+.slider img {
+	display: none;
+}
+
+.slider .FA_featured_articles img {
+display: block !important;	
+}
+
+.box-left .FA_next,
+.box-right .FA_back  {
+display: none !important;	
+}
+
+.box-left .FA_back,
+.box-right .FA_next {	
+	top: 350px !important
+}
+
+.box-left .FA_back,
+ .box-left .FA_back:hover {
+	background: url(../images/arrow-left.png) !important;
+}
+
+.box-right .FA_next,
+ .box-right .FA_next:hover {
+	background: url(../images/arrow-right.png) !important;
+}
+
+
+
+.cat_thumb_img_box{
+    float: left; 
+    background-color: #fff;
+    padding:10px;
+    width:30%;
+    text-align: center;
+    min-height:180px;
+}
+.cat_thumb_img_box img{
+	width: 100%;
+	height: auto;
+}
+
+#pagination {
+    
+    width:100%;
+    height:40px;
+    clear: both;
+}
+
+
+#main_slider_box{
+    background-color: #efefef;
+    height: 208px;
+    margin: 0px 0 0 0;
+    overflow: hidden;
+    width: 810px;
+}
+
+.mainBlogthumb{
+    padding:10px;
+    float:right;
+}
+
+/*====================================================
+    Home page main section under slider
+====================================================*/
+
+.main_section{
+    width:100%;
+    position:relative;
+    height:230px;
+    clear: both;
+    border-top: solid #ccc 1px;
+}
+
+
+.main_section .main_section_left{
+    float:left;
+    width:35%;
+    padding-top: 10px;
+
+}
+
+.main_section .main_section_left h1{
+    text-transform:uppercase;
+  
+    color: #009d57;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.main_section .main_section_right{
+    float:right;
+    width:58%;
+    padding-left: 3%;
+    border-left: solid #ccc 1px;
+    padding-top: 10px;
+}
+
+.main_section .main_section_right h1{
+    text-transform:uppercase;
+  
+    color: #009d57;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+img.attachment-mainBlog_thumb {
+	float: right;
+	margin-left: 20px;
+}
+
+img.attachment-fullsize {
+	width: 100%;
+}
+
+img.attachment-brandnew_thumb {
+	float: left;
+	margin-right: 20px;
+	width: 284px;
+}
+
+
+/*====================================================
+    
+====================================================*/
+
+.archive_list_box{
+    width:100%;
+    margin-top:20px;
+    margin-bottom:10px;
+	clear: both;
+	min-height: 152px;
+}
+
+
+
+.archive_list_box .thumb{
+     float:left;
+     width:30%;    
+}
+
+.archive_list_box .thumb img{
+	width: 100%;
+	height: auto;
+}
+
+.archive_list_box .description{
+     float:right;
+     width:66%;
+}
+
+.archive_list_box .video_thumb{
+     float:left;
+     width:45%;
+     padding:10px;
+     border:1px solid #000000;
+     margin-bottom:15px;
+     margin-right: 15px;
+}
+.archive_list_box .video_thumb p {
+	margin: 0 !important;
+}
+.archive_list_box .video_description{
+     float:right;
+     width:66%;
+}
+
+
+
+
+body.page-id-5 p img{
+		width: 100%;
+		height: auto;
+}
+
+#responsivemenu {
+	display: none;
+	position: fixed;
+	top: 10px;
+	right: 5px;
+	z-index: 99;
+}
+
+.gform_button {
+    margin-left:20px;
+    background-color: #be1e2a;
+    padding:5px 10px;
+    color:#fff;
+}
+.wp-pagenavi {
+    width:90%; 
+    float:left; 
+   
+}
+
+.wp-pagenavi a,.current  {
+    padding-left:10px;
+}

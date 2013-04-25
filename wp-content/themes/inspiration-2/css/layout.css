@@ -1,0 +1,58 @@
+/* BASIC STYLE */
+body {
+   /*background:#ffffff url(../images/bg-splash.jpg) 50% 0 no-repeat;*/
+   background:#ffffff;
+   color:#000000;
+   font: 62.5% Arial, sans-serif;
+   text-align: left;
+}
+
+#header {
+	height:85px;
+	margin:0 auto;
+	position:relative;
+	width:990px;
+}
+
+/* centers content */
+#wrap {
+	background:url(../images/bg-wrap.png) 0 0 no-repeat;
+	margin:0 auto;
+	height:818px;
+	overflow:hidden;
+    width:990px;
+}
+
+#columns {
+	height:785px;
+	margin:15px 17px 0 16px;
+	position:relative;
+	width:957px;
+}
+
+#content {
+	float:left;
+	width:810px;
+
+	
+}
+
+#sidebar {
+
+	float:right;
+	height:740px;
+	margin:21px 10px 24px 0;
+	padding:0 0 0 10px;
+	position:relative;
+	width:127px;
+}
+
+#footer {
+	color:#ffffff;
+	font-size:11px;
+	height:23px;
+	margin:0 auto;
+	padding:10px 27px 0 0;
+	text-align:right;
+	width:963px;
+}
